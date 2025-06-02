@@ -1,0 +1,115 @@
+.registration-page {
+  text-align: center;
+  padding-bottom: 80px; /* Più spazio in basso */
+}
+
+.registration-page .page-description {
+  font-size: 1.1em;
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+  color: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .registration-page .page-description {
+    color: #bbb;
+  }
+}
+
+.registration-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  text-align: left; /* I campi del form sono allineati a sinistra */
+}
+
+@media (prefers-color-scheme: dark) {
+  .registration-form {
+    background-color: #2b2b2b;
+  }
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-group label {
+    color: white;
+  }
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group select {
+  width: calc(100% - 20px); /* 100% meno il padding */
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  box-sizing: border-box; /* Include padding e border nella larghezza */
+  background-color: #f9f9f9;
+}
+
+@media (prefers-color-scheme: dark) {
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="date"],
+  .form-group select {
+    background-color: #3a3a3a;
+    border-color: #555;
+    color: white;
+  }
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4CAF50;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2); /* Ingrandisce la checkbox */
+}
+
+.checkbox-group label {
+  margin-bottom: 0; /* Rimuove il margin-bottom predefinito */
+  display: inline-block; /* Per allinearsi alla checkbox */
+}
+
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #4CAF50; /* Verde principale */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}

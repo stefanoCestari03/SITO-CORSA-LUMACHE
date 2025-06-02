@@ -1,0 +1,171 @@
+/* Stili per la sezione video di sfondo */
+.video-background-section {
+  position: relative;
+  width: 100%;
+  height: 60vh; /* Altezza della sezione video */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  /* Assicurati che il video non sia cliccabile se non vuoi */
+  pointer-events: none;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Overlay scuro per il video */
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-overlay-content {
+  position: relative; /* Per assicurare che il contenuto sia sopra l'overlay */
+  z-index: 3;
+}
+
+.video-overlay-content h2 {
+  font-size: 3em;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.video-overlay-content p {
+  font-size: 1.2em;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Stili per la sezione dettagli della corsa (contenuto principale) */
+.race-details-content {
+  padding-top: 60px;
+  padding-bottom: 80px;
+}
+
+.race-details-content .page-description {
+  font-size: 1.1em;
+  max-width: 800px;
+  margin: 20px auto 40px auto;
+  color: #555;
+}
+
+@media (prefers-color-scheme: dark) {
+  .race-details-content .page-description {
+    color: #bbb;
+  }
+}
+
+
+/* Stili per l'immagine della mappa del percorso */
+.race-map-container {
+  margin: 60px auto; /* Spazio sopra e sotto l'immagine */
+  max-width: 900px;
+  text-align: center;
+}
+
+.race-map-container h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+@media (prefers-color-scheme: dark) {
+  .race-map-container h3 {
+    color: #e0f2f7;
+  }
+}
+
+.race-map-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  margin-bottom: 20px;
+}
+
+.race-map-container p {
+  font-size: 1.1em;
+  color: #666;
+}
+
+@media (prefers-color-scheme: dark) {
+  .race-map-container p {
+    color: #ccc;
+  }
+}
+
+/* Stili per sezioni aggiuntive (come Regolamento, Punti Ristoro) */
+.additional-info-section {
+  margin-top: 50px;
+  padding: 30px;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  .additional-info-section {
+    background-color: #333;
+  }
+}
+
+.additional-info-section h3 {
+  color: #4CAF50;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+}
+
+.additional-info-section p {
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .additional-info-section p {
+    color: #ddd;
+  }
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .video-background-section {
+    height: 40vh;
+  }
+  .video-overlay-content h2 {
+    font-size: 2em;
+  }
+  .video-overlay-content p {
+    font-size: 1em;
+  }
+  .race-map-container {
+    margin: 40px auto;
+  }
+  .race-map-container h3 {
+    font-size: 1.6em;
+  }
+  .additional-info-section {
+    padding: 20px;
+  }
+}

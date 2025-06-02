@@ -1,5 +1,6 @@
 import React from 'react';
-import './Header.css'; // Creeremo questo file CSS
+import { Link } from 'react-router-dom';
+import './Header.css';
 
 function Header() {
   return (
@@ -8,9 +9,9 @@ function Header() {
         <h1>La Grande Corsa della Città</h1>
         <nav>
           <ul>
-            <li><a href="#about">La Corsa</a></li>
-            <li><a href="#details">Dettagli</a></li>
-            <li><a href="#register">Iscriviti</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/corsa">La Corsa</Link></li>
+            <li><Link to="/iscrizione">Iscriviti</Link></li> {/* <-- Modificato qui! */}
           </ul>
         </nav>
       </div>

@@ -1,25 +1,28 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import HeroSection from './components/HeroSection';
-import AboutSection from './components/AboutSection';
-import RaceDetails from './components/RaceDetails';
-import RegistrationCta from './components/RegistrationCta';
 import Footer from './components/Footer';
 
-import './App.css'; // Stili generali dell'app (già creati)
+// Importa i componenti delle pagine
+import HomePage from './pages/HomePage';
+import RaceDetailsPage from './pages/RaceDetailsPage';
+import RegistrationPage from './pages/RegistrationPage'; // <-- Nuova importazione
+
+import './App.css';
 
 function App() {
   return (
-    <>
+    <Router>
       <Header />
       <main>
-        <HeroSection />
-        <AboutSection />
-        <RaceDetails />
-        <RegistrationCta />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/corsa" element={<RaceDetailsPage />} />
+          <Route path="/iscrizione" element={<RegistrationPage />} /> {/* <-- Nuova Route */}
+        </Routes>
       </main>
       <Footer />
-    </>
+    </Router>
   );
 }
 
