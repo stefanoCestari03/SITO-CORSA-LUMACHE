@@ -1,0 +1,38 @@
+.registration-cta {
+  background-color: #4CAF50; /* Verde brillante */
+  color: white;
+}
+
+.registration-cta h2 {
+  color: white;
+  font-size: 2.5em;
+}
+
+.registration-cta p {
+  font-size: 1.3em;
+  margin-bottom: 25px;
+}
+
+.registration-cta button {
+  background-color: #FFC107; /* Giallo CTA */
+  color: #2c3e50;
+  border: none;
+  padding: 18px 40px;
+  font-size: 1.6em;
+  font-weight: bold;
+  border-radius: 50px; /* Bottone arrotondato */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.registration-cta button:hover {
+  background-color: #e0a800;
+  transform: translateY(-3px);
+}
+
+.registration-cta .deadline {
+  margin-top: 30px;
+  font-size: 1.1em;
+  font-style: italic;
+  opacity: 0.9;
+}
