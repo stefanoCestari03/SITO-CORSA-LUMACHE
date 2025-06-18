@@ -103,7 +103,7 @@ function RegistrationPage() {
   return (
     <div className="container section registration-page">
       <h2>Modulo di Iscrizione alla Corsa</h2>
-      <p className="page-description">Compila il modulo sottostante per iscriverti alla Grande Corsa della Città. Assicurati di inserire tutti i dati richiesti.</p>
+      <p style={{ color: 'white'}} className="page-description">Compila il modulo sottostante per iscriverti alla Grande Corsa della Città. Assicurati di inserire tutti i dati richiesti.</p>
 
       {/* Messaggio di feedback all'utente (successo o errore) */}
       {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}

@@ -1,85 +1,246 @@
-/* Stili globali e reset */
-:root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: #333; /* Testo scuro di default */
-  background-color: #f4f4f4; /* Sfondo chiaro di default */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  line-height: 1.1;
-  color: #2c3e50; /* Un blu scuro per i titoli */
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-a {
-  font-weight: 500;
-  color: #4CAF50; /* Verde per i link */
-  text-decoration: inherit;
-}
-a:hover {
-  color: #45a049;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #4CAF50; /* Verde per i bottoni */
-  color: white;
-  cursor: pointer;
-  transition: border-color 0.25s, background-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-  background-color: #45a049;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-/* Modalità scura */
-@media (prefers-color-scheme: dark) {
+/* --- Global Box-Sizing Reset --- */
+/* Questo assicura che padding e border siano inclusi nella larghezza/altezza degli elementi,
+   prevenendo overflow inaspettati. Va messo all'inizio di ogni progetto. */
+   *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  
+  /* --- Base HTML/Body Configuration --- */
+  /* L'elemento html deve avere un'altezza del 100% per far funzionare min-height: 100vh su body/#root */
+  html {
+    height: 100%; /* Essenziale per layout full-height */
+  }
+  
+  body {
+    margin: 0;
+    background-color: #f0afcf; /* Sfondo rosa chiaro */
+    min-width: 320px; /* Larghezza minima per evitare layout troppo compressi su mobile */
+    min-height: 100vh; /* Assicura che il body occupi almeno tutta l'altezza della viewport */
+    display: flex; /* Rende il body un container flex */
+    flex-direction: column; /* Impila il contenuto (se c'è qualcosa direttamente nel body, altrimenti non ha effetto) */
+  }
+  
+  /* --- Definizione dei Font Personalizzati --- */
+  
+  /* Patrick Hand - per titoli o elementi speciali */
+  @font-face {
+    font-family: 'Patrick Hand';
+    src: url('/fonts/PatrickHand-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* Outfit - per testo generale, bottoni e navigazione */
+  @font-face {
+    font-family: 'Outfit';
+    src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  /* --- Stili globali per :root --- */
   :root {
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    font-family: 'Outfit', sans-serif; /* Outfit come font principale per il testo */
+    line-height: 1.5;
+    font-weight: 400;
+  
+    color-scheme: light dark;
+    color: #333; /* Testo scuro di default */
+    
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  
+  /* Stili per il div #root (dove viene montata l'app React) */
+  #root {
+    width: 100%; /* Deve occupare tutta la larghezza */
+    min-height: 100vh; /* Deve occupare l'altezza completa della viewport */
+    background-color: transparent; /* Assicura che lo sfondo del body sia visibile */
+    display: flex; /* Rendi #root un container flex */
+    flex-direction: column; /* Organizza gli elementi figli (Header, Main, Footer) in colonna */
+  }
+  
+  /* --- Stili per l'Header --- */
+  .header {
+    background-color: #f0afcf;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #e0cff0;
+    width: 100%; /* Importante per gli elementi flex */
+    flex-shrink: 0; /* Impedisce all'header di rimpicciolirsi se lo spazio è limitato */
+  }
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Utile per la responsività su schermi piccoli */
+    max-width: 1200px; /* Limita la larghezza massima del contenuto dell'header */
+    margin: 0 auto; /* Centra il contenuto dell'header */
+    padding: 0 20px; /* Padding sui lati per evitare che il contenuto si attacchi ai bordi */
+  }
+  
+  .logo-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row; /* Icona e titolo affiancati */
+    gap: 10px; /* Spazio tra icona e titolo */
+  }
+  
+  .header-icon {
+    height: 30px; /* Dimensione dell'icona */
+    width: auto;
+  }
+  
+  /* Stili per il link che contiene l'H1 del titolo del sito */
+  .site-title-link {
+    text-decoration: none; /* Rimuove la sottolineatura del link */
+    color: inherit; /* Eredita il colore dal genitore per impostazione predefinita */
+  }
+  
+  .site-title-link h1 {
+    font-family: 'Patrick Hand', cursive; /* Font Patrick Hand per il titolo */
+    font-size: 2.2em;
+    color: #333; /* Colore del titolo (considera un colore migliore per il tema) */
+    margin: 0; /* Rimuovi margini di default dell'h1 */
+    line-height: 1; /* Altezza della riga compatta per il titolo */
+  }
+  
+  .site-title-link:hover h1 {
+    color: white; /* Colore al passaggio del mouse per il titolo */
+  }
+  
+  .main-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .main-nav li {
+    margin-left: 25px;
+  }
+  
+  .main-nav a {
+    font-family: 'Outfit', sans-serif; /* Font Outfit per i link di navigazione */
+    font-size: 1.1em;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .main-nav a:hover {
+    color: #007bff;
+  }
+  
+  /* --- Stile per il Contenuto Principale (<main> in App.jsx) --- */
+  main {
+    flex-grow: 1; /* Permette al contenuto principale di occupare tutto lo spazio verticale disponibile */
+    width: 100%; /* Assicura che il contenuto principale occupi tutta la larghezza */
+    display: flex; /* Utile per layout interni alle pagine (es. centrare il contenuto) */
+    flex-direction: column; /* Organizza il contenuto delle pagine in colonna */
+    /* Potresti aggiungere padding qui per il contenuto di tutte le pagine se non lo gestisci in .container */
+  }
+
+  
+  
+  /* --- Regole per i Titoli (h1-h6) e Testo Generale --- */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Patrick Hand', cursive; /* Patrick Hand per tutti i titoli */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    line-height: 1.1;
+    color: #333; /* Un blu scuro per i titoli */
+    font-weight: normal; /* Patrick Hand-Regular è il peso normale del font */
+  }
+  h2 {
+    font-size: 2em; /* Dimensione per h1 */
+  }
+  
+  p {
+    margin-top: 0;
+    margin-bottom: 1em;
+    color: white; /* <-- IMPOSTATO SU BIANCO */
+  }
+  
+  
+  a {
+    font-weight: 500; /* Outfit di peso medio per i link generici */
+    color: white; /* Verde per i link */
+    text-decoration: inherit;
   }
   a:hover {
-    color: #747bff;
+    color: #45a049;
   }
+  
   button {
-    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 600; /* Outfit in grassetto per i bottoni */
+    font-family: 'Outfit', sans-serif; /* Applica Outfit anche ai bottoni */
+    background-color: #2c3e50; /* Verde per i bottoni */
+    color: white;
+    cursor: pointer;
+    transition: border-color 0.25s, background-color 0.25s;
   }
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+  button:hover {
+    border-color: white;
+    background-color: #2c3e50;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+  
+  /* --- Modalità scura --- */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color: rgba(255, 255, 255, 0.87);
+    }
+    body { /* Applica il colore di sfondo scuro al body in modalità scura */
+      background-color: #242424;
+    }
+    a:hover {
+      color: #dd2f8a
+;
+    }
+    button {
+      background-color: #1a1a1a;
+    }
+  }
+  
+  /* --- Stile per il container di contenuto interno --- */
+  /* Questo .container è pensato per il contenuto interno delle pagine (es. dentro <main>) */
+  .container {
+    max-width: 1200px; /* Larghezza massima */
+    margin: 0 auto; /* Centratura automatica */
+    padding: 20px; /* Padding interno */
+    width: 100%; /* Assicura che si adatti alla larghezza disponibile */
+    box-sizing: border-box; /* Previene overflow con padding */
+  }
+  
+  /* --- Media query per mobile --- */
+  @media (max-width: 768px) {
+    .header-content {
+      flex-direction: column; /* Stack verticale per l'header su mobile */
+      align-items: flex-start;
+    }
+    .main-nav ul {
+      flex-direction: column;
+      margin-top: 15px;
+      width: 100%;
+    }
+    .main-nav li {
+      margin: 5px 0;
+    }
+    .container {
+      padding: 10px; /* Meno padding sui mobile */
+    }
+  }

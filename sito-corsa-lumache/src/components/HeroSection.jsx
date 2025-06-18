@@ -3,7 +3,7 @@ import './HeroSection.css'; // Creeremo questo file CSS
 // Puoi scaricare un'immagine di corsa e metterla in src/assets/race-bg.jpg
 // Ad esempio: https://unsplash.com/photos/a-man-is-running-on-a-track-J4vHh14_E2k
 // Rinominala e salva in src/assets/race-bg.jpg
-import backgroundImage from '../assets/race-bg.jpg';
+import backgroundImage from '../assets/LumacaHero.jpg';
 
 function HeroSection() {
   return (

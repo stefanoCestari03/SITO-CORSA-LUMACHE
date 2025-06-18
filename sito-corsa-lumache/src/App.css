@@ -17,6 +17,7 @@
 
 @media (prefers-color-scheme: dark) {
   .section:nth-child(even) {
-    background-color: #2b2b2b;
+    background-color: #f0afcf;
   }
 }
+

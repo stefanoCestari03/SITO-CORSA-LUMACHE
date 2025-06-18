@@ -1,4 +1,22 @@
 /* Stili per la sezione video di sfondo */
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('/fonts/PatrickHand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Outfit - per testo generale, bottoni e navigazione */
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 .video-background-section {
   position: relative;
   width: 100%;
@@ -31,7 +49,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Overlay scuro per il video */
+  background-color: #f0afcf; /* Overlay scuro per il video */
   z-index: 2;
   display: flex;
   align-items: center;
@@ -129,7 +147,7 @@
 }
 
 .additional-info-section h3 {
-  color: #4CAF50;
+  color: #679d45;
   margin-bottom: 15px;
   font-size: 1.8em;
 }
