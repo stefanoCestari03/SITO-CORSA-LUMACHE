@@ -19,6 +19,14 @@
   text-align: center;
   padding-bottom: 80px; /* Più spazio in basso */
   font-family: 'Outfit';
+  background-color: #dd2f8a;
+}
+
+h2.registration-page {
+  font-family: 'Mandarin', cursive; /* Font per il titolo */
+  font-size: 2.5em;
+  margin-top: 40px;
+  color: white;
 }
 
 .registration-page .page-description {
@@ -46,7 +54,7 @@
 
 @media (prefers-color-scheme: dark) {
   .registration-form {
-    background-color: #2b2b2b;
+    background-color: #e4bed2;
   }
 }
 
@@ -58,12 +66,12 @@
   display: block;
   margin-bottom: 8px;
   font-weight: bold;
-  color: #2c3e50;
+  color: #dd2f8a;
 }
 
 @media (prefers-color-scheme: dark) {
   .form-group label {
-    color: white;
+    color: #dd2f8a; /* Cambia il colore del testo in modalità scura */
   }
 }
 
@@ -73,7 +81,7 @@
 .form-group select {
   width: calc(100% - 20px); /* 100% meno il padding */
   padding: 12px 10px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 5px;
   font-size: 1em;
   box-sizing: border-box; /* Include padding e border nella larghezza */
@@ -85,7 +93,7 @@
   .form-group input[type="email"],
   .form-group input[type="date"],
   .form-group select {
-    background-color: #3a3a3a;
+    background-color: #dd2f8a;
     border-color: #555;
     color: white;
   }
@@ -93,9 +101,9 @@
 
 .form-group input:focus,
 .form-group select:focus {
-  border-color: #4CAF50;
+  border-color: #dd2f8a;
   outline: none;
-  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 0 0 3px #dd2f8a
 }
 
 .checkbox-group {
@@ -131,3 +139,4 @@
   background-color: #f0afcf;
   transform: translateY(-2px);
 }
+

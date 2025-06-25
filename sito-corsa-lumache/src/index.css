@@ -40,9 +40,16 @@
     font-display: swap;
   }
   
+  @font-face {
+  font-family: 'Mandarin'; /* Nome CSS del font */
+  src: url('/fonts/DK Mandarin Whispers.otf') format('truetype');
+  font-weight: 100 900; /* Outfit è un font variabile, supporta pesi da 100 a 900 */
+  font-style: normal;
+  font-display: swap; /* Migliora il caricamento */
+}
   /* --- Stili globali per :root --- */
   :root {
-    font-family: 'Outfit', sans-serif; /* Outfit come font principale per il testo */
+    font-family: 'Patrick Hand', sans-serif; /* Outfit come font principale per il testo */
     line-height: 1.5;
     font-weight: 400;
   
@@ -106,7 +113,7 @@
   .site-title-link h1 {
     font-family: 'Patrick Hand', cursive; /* Font Patrick Hand per il titolo */
     font-size: 2.2em;
-    color: #333; /* Colore del titolo (considera un colore migliore per il tema) */
+    color: white; /* Colore del titolo (considera un colore migliore per il tema) */
     margin: 0; /* Rimuovi margini di default dell'h1 */
     line-height: 1; /* Altezza della riga compatta per il titolo */
   }
@@ -151,11 +158,11 @@
   
   /* --- Regole per i Titoli (h1-h6) e Testo Generale --- */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Patrick Hand', cursive; /* Patrick Hand per tutti i titoli */
+    font-family: 'Mandarin', cursive; /* Patrick Hand per tutti i titoli */
     margin-top: 0;
     margin-bottom: 0.5em;
     line-height: 1.1;
-    color: #333; /* Un blu scuro per i titoli */
+    color: WHITE; /* Un blu scuro per i titoli */
     font-weight: normal; /* Patrick Hand-Regular è il peso normale del font */
   }
   h2 {
@@ -171,7 +178,7 @@
   
   a {
     font-weight: 500; /* Outfit di peso medio per i link generici */
-    color: white; /* Verde per i link */
+    color: #dd2f8a; /* Verde per i link */
     text-decoration: inherit;
   }
   a:hover {
@@ -191,7 +198,7 @@
     transition: border-color 0.25s, background-color 0.25s;
   }
   button:hover {
-    border-color: white;
+    border-color: rgb(255, 255, 255);
     background-color: #2c3e50;
   }
   button:focus,
@@ -219,11 +226,12 @@
   /* --- Stile per il container di contenuto interno --- */
   /* Questo .container è pensato per il contenuto interno delle pagine (es. dentro <main>) */
   .container {
-    max-width: 1200px; /* Larghezza massima */
+    /*max-width: 1200px; /* Larghezza massima */
     margin: 0 auto; /* Centratura automatica */
     padding: 20px; /* Padding interno */
     width: 100%; /* Assicura che si adatti alla larghezza disponibile */
     box-sizing: border-box; /* Previene overflow con padding */
+    text-align: center; /* Centra il testo all'interno del container */
   }
   
   /* --- Media query per mobile --- */

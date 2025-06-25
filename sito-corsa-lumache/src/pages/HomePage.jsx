@@ -6,7 +6,7 @@ import RegistrationCta from '../components/RegistrationCta'; // Solo la CTA, i d
 function HomePage() {
   return (
     <>
-      <HeroSection />
+      
       <AboutSection />
       <RegistrationCta />
       {/* RaceDetails non è più qui, va nella sua pagina dedicata */}

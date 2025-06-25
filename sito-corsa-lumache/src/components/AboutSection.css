@@ -1,7 +1,22 @@
-.section {
-    padding: 60px 0;
-    text-align: center;
-    background-color: #f0afcf; /* Sfondo leggermente diverso per sezioni alterne */
+.textContainerAbout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin-left: 50%;
+  margin-right: 20px;
+  margin-top: 200px;
+  margin-bottom: 200px;
 }
 
-
+.textContainerAbout h2 {
+  font-size: 2.5em;
+  color: #e4bed2; /* Colore del titolo */
+  margin-bottom: 40px;
+}
+.textContainerAbout p {
+  font-size: 1.3em;
+  color: #e4bed2; /* Colore del testo */
+  margin-bottom: 30px;
+  text-align: left;
+}

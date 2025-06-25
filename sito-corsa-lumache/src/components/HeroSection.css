@@ -17,7 +17,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Overlay scuro per leggibilità del testo */
+  /*background-color: rgba(0, 0, 0, 0.5); /* Overlay scuro per leggibilità del testo */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,17 +39,18 @@
 }
 
 .hero-section .button {
-  background-color: #FFC107; /* Giallo brillante per CTA */
-  color: #2c3e50; /* Testo scuro sul bottone */
+  background-color: #dd2f8a; /* Giallo brillante per CTA */
+  color: white; /* Testo scuro sul bottone */
   padding: 15px 30px;
   font-size: 1.3em;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 50%;
   transition: background-color 0.3s ease;
+  margin: auto; /* Per centrare il bottone */
 }
 
 .hero-section .button:hover {
-  background-color: #e0a800; /* Giallo più scuro all'hover */
+  background-color: #dd2f8971; /* Giallo più scuro all'hover */
 }
 
 @media (max-width: 768px) {
@@ -65,5 +66,6 @@
   .hero-section .button {
     font-size: 1.1em;
     padding: 12px 25px;
+    flex-direction: column; /* Per centrare il bottone su mobile */
   }
 }

@@ -18,11 +18,21 @@
   font-display: swap; /* Migliora il caricamento */
 }
 
+/* Outfit - per titoli*/
+@font-face {
+  font-family: 'Mandarin'; /* Nome CSS del font */
+  src: url('/fonts/DK Mandarin Whispers.otf') format('truetype');
+  font-weight: 100 900; /* Outfit è un font variabile, supporta pesi da 100 a 900 */
+  font-style: normal;
+  font-display: swap; /* Migliora il caricamento */
+}
 .header {
-  background-color: #f0afcf; /* Blu scuro */
+  background-image: url('../assets/LumacaHero.jpg'); /* Immagine di sfondo per l'header */
+  background-size: cover; /* Copre l'intera area dell'header */
+  background-position: center; /* Centra l'immagine di sfondo */
   color: white;
   padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  /*box-shadow: 0 2px 5px rgba(0,0,0,0.2);*/
 }
 
 .logo-container {
@@ -55,25 +65,25 @@
 }
 
 .header nav a {
-  font-family: 'Patrick Hand', cursive; /* Font per il titolo */
-  font-size: 1.2em;
-  color: #272727;
+  font-family: 'Mandarin', cursive; /* Font per il titolo */
+  font-size: 2.5em;
+  color: white;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .header nav a:hover {
-  color: white; /* Verde chiaro all'hover */
+  color: rgba(255, 255, 255, 0.407); /* Verde chiaro all'hover */
 }
 .header-icon {
-  width: 30px;
-  height: 30px;
-  background-color: #272727; /* Colore dell'icona */
+  width: 200px !important;
+  height: 200px !important;
+  max-width: 200px !important;
+  max-height: 200px !important;
   border-radius: 50%; /* Forma circolare */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  object-fit: contain; /* Mantiene l'intera immagine visibile senza tagli */
+  display: block; /* Assicura che l'immagine sia visualizzata correttamente */
 }
 
 @media (max-width: 768px) {
