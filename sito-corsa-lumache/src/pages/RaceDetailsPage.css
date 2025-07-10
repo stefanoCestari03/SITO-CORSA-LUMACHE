@@ -120,6 +120,11 @@
   margin-bottom: 20px;
 }
 
+#SpaziaTitolo{
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
 .race-map-container p {
   font-size: 1.1em;
   color: #666;
@@ -165,6 +170,11 @@
   }
 }
 
+/* Sfondo principale per la pagina RaceDetails */
+.race-details-page {
+  background-color: #f0afcf;
+  min-height: 100vh;
+}
 
 /* Responsive adjustments */
 @media (max-width: 768px) {

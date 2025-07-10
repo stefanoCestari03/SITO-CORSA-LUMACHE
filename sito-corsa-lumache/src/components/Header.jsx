@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Header.css'; // Manteniamo il tuo CSS specifico per l'header
-import lumacaIcon from '/snailtrailrace_bianco.png';
+import lumacaIcon from '/snailtrail_bianco.png';
 import HeroSection from './HeroSection';
 
 function Header() {

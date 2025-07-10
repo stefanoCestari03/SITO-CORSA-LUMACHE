@@ -19,13 +19,15 @@
 
 @media (prefers-color-scheme: dark) {
   .detail-item {
-    background-color: #333;
+    background-color: #dd2f8a;
     color: white;
   }
 }
 
+
+
 .detail-item h3 {
-  color: #afad4c; /* Verde per i titoli dei dettagli */
+  color: #f0afcf; /* Verde per i titoli dei dettagli */
   margin-bottom: 10px;
   font-size: 1.5em;
 }
@@ -33,11 +35,11 @@
 .detail-item p {
   margin-bottom: 5px;
   font-size: 1.1em;
-  color: #555;
+  color: #f0afcf;
 }
 
 @media (prefers-color-scheme: dark) {
   .detail-item p {
-    color: #bbb;
+    color: #f0afcf;
   }
 }

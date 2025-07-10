@@ -42,10 +42,16 @@ h2.registration-page {
   }
 }
 
+#SpaziatoreTitolo {
+  margin-top: 50px; /* Spazio tra l'onda superiore e il titolo */
+}
+
 .registration-form {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
+  margin-top: 20px; /* Spazio tra il titolo e il form */
+  margin-bottom: 100px; /* Spazio tra il form e il footer */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -85,7 +91,7 @@ h2.registration-page {
   border-radius: 5px;
   font-size: 1em;
   box-sizing: border-box; /* Include padding e border nella larghezza */
-  background-color: #f9f9f9;
+  background-color: #bbb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -93,9 +99,9 @@ h2.registration-page {
   .form-group input[type="email"],
   .form-group input[type="date"],
   .form-group select {
-    background-color: #dd2f8a;
-    border-color: #555;
-    color: white;
+    background-color: #ffffff;
+    border-color: #dd2f8a;
+    color: #dd2f8a;
   }
 }
 
@@ -125,10 +131,10 @@ h2.registration-page {
 .submit-button {
   width: 100%;
   padding: 15px;
-  background-color: #f0afcf; /* Verde principale */
+  background-color: #dd2f8a; /* Verde principale */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.2em;
   font-weight: bold;
   cursor: pointer;
@@ -136,7 +142,7 @@ h2.registration-page {
 }
 
 .submit-button:hover {
-  background-color: #f0afcf;
+  background-color: #dd2f898e;
   transform: translateY(-2px);
 }
 
