@@ -52,7 +52,7 @@ function RaceDetailsPage() {
       <div className="container section">
         
         <RaceDetails />
-        <div className="race-map-section">
+        <div id="mappaPercorso" className="race-map-section">
         <div id="SpaziaTitolo"><h2>Mappa Interattiva del Percorso</h2></div>
         <p>Clicca sull'immagine per ingrandire la mappa e visualizzare i dettagli del percorso.</p>
         {/* Utilizzo di ModalImage - assicurati che sia esattamente così */}

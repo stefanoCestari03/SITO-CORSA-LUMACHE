@@ -20,12 +20,19 @@
 @media (prefers-color-scheme: dark) {
   .detail-item {
     background-color: #dd2f8a;
-    color: white;
+    transition-duration: 1s;
   }
 }
 
+#luogo:hover {
+  color: #f0afcf93; /* Verde per il testo del luogo */
+  font-weight: bold;
+}
 
-
+#spazioDettagli {
+  margin-top: 100px; /* Spazio tra l'onda superiore e il titolo */
+  margin-bottom: 100px; /* Spazio tra il titolo e i dettagli */
+}
 .detail-item h3 {
   color: #f0afcf; /* Verde per i titoli dei dettagli */
   margin-bottom: 10px;

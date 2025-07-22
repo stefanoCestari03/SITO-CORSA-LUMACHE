@@ -6,7 +6,7 @@ import { supabase } from '../supabaseClient'; // Importa il client Supabase
 const sectionBackgroundStyle = {
       backgroundSize: 'cover',
       whidth: '100%', // Copertura completa dello sfondo
-      padding: '60px 0',          // Padding interno sopra e sotto
+      padding: '60px 0',           // Padding interno sopra e sotto
       textAlign: 'center',        // Allineamento testo al centro
       backgroundColor: '#dd2f8a', // Il colore di sfondo della tua sezione
       
@@ -28,7 +28,7 @@ const sectionBackgroundStyle = {
     zIndex: '0', // Mettiamo le onde sotto il contenuto della sezione
     pointerEvents: 'none',
     top: '0',
-    marginTop: '-70px', // Per evitare che l'onda superiore si sovrapponga al contenuto
+    marginTop: '-52px', // Per evitare che l'onda superiore si sovrapponga al contenuto
     // L'SVG ha il 'dente' in basso. Il fill deve corrispondere al colore della sezione (#dd2f8a)
     backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23dd2f8a' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
   };
@@ -40,23 +40,26 @@ function RegistrationPage() {
   const [formData, setFormData] = useState({
     nome: '',
     cognome: '',
+    codiceFiscale: '',
     email: '',
-    dataNascita: '', // Formato "YYYY-MM-DD" per input[type="date"]
+    telefono: '',
+    dataNascita: '',
     genere: '',
-    percorso: '',
-    terminiAccettati: false,
+    // 'terminiAccettati' rimosso dallo stato
   });
 
   // Stati per la gestione del feedback utente e dello stato di caricamento
-  const [loading, setLoading] = useState(false); // Vero quando l'invio è in corso
-  const [message, setMessage] = useState(''); // Messaggio di feedback (successo/errore)
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState('');
 
   // Gestore per l'aggiornamento dello stato del form quando gli input cambiano
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: type === 'checkbox' ? checked : value, // Gestisce le checkbox in modo specifico
+      // La gestione delle checkbox qui non è più strettamente necessaria se non ci sono altre checkbox,
+      // ma è innocua lasciarla. Ho comunque rimosso 'terminiAccettati' dall'oggetto di stato.
+      [name]: value, 
     }));
   };
 
@@ -64,80 +67,78 @@ function RegistrationPage() {
   const handleSubmit = async (e) => {
     e.preventDefault(); // Impedisce il ricaricamento predefinito della pagina
 
-    // Validazione lato client: verifica che i termini siano accettati
-    if (!formData.terminiAccettati) {
-      setMessage('Devi accettare i termini e le condizioni per procedere.');
-      return; // Ferma l'esecuzione se i termini non sono accettati
-    }
+    // Validazione per 'terminiAccettati' rimossa
 
-    setLoading(true); // Attiva lo stato di caricamento
-    setMessage(''); // Azzera eventuali messaggi precedenti
+    setLoading(true);
+    setMessage('');
 
     try {
-      // Invia i dati alla tabella 'registrations' su Supabase
-      // Il nome della tabella qui (es. 'registrations') DEVE corrispondere
-      // al nome della tabella che hai creato nella dashboard di Supabase.
       const { data, error } = await supabase
         .from('registrations') // <--- NOME DELLA TUA TABELLA SUPABASE
         .insert([
           {
-            // Mappa le proprietà dello stato 'formData' ai nomi delle colonne
-            // nella tua tabella Supabase. I nomi delle chiavi qui (es. 'nome', 'data_nascita')
-            // devono corrispondere ESATTAMENTE ai nomi delle colonne del tuo database.
             nome: formData.nome,
             cognome: formData.cognome,
+            codiceFiscale: formData.codiceFiscale,
             email: formData.email,
-            data_nascita: formData.dataNascita, // Colonna nel DB con underscore
+            telefono: formData.telefono,
+            data_nascita: formData.dataNascita,
             genere: formData.genere,
-            percorso: formData.percorso,
-            termini_accettati: formData.terminiAccettati,
-            // 'id' e 'created_at' non vanno inclusi qui, Supabase li gestisce automaticamente
+            // 'termini_accettati' rimosso dall'inserimento
           },
         ]);
 
       if (error) {
-        // Gestione degli errori restituiti dall'API Supabase
         console.error('Errore durante l\'inserimento su Supabase:', error);
         let errorMessage = `Errore nell'iscrizione: ${error.message}.`;
 
-        // Se l'errore è dovuto a una violazione di unicità (es. email duplicata),
-        // fornisci un messaggio più specifico all'utente.
-        if (error.code === '23505') { // Codice SQLSTATE per unique_violation
+        if (error.code === '23505') {
             errorMessage = 'Errore: Un utente con questa email è già iscritto.';
         }
         setMessage(errorMessage);
 
       } else {
-        // Se l'inserimento ha successo
         console.log('Iscrizione inviata con successo!', data);
         setMessage('Iscrizione completata con successo! Ora procederesti al pagamento.');
-        // Resetta il form per permettere una nuova iscrizione o per pulizia
+        // Resetta il form
         setFormData({
           nome: '',
           cognome: '',
+          codiceFiscale: '',
           email: '',
+          telefono: '',
           dataNascita: '',
           genere: '',
-          percorso: '',
-          terminiAccettati: false,
+          // 'terminiAccettati' rimosso dal reset
         });
       }
     } catch (err) {
-      // Gestione di errori JavaScript generici (es. problemi di rete, errori di codice)
       console.error('Si è verificato un errore inaspettato:', err);
       setMessage('Si è verificato un errore inaspettato durante l\'invio. Riprova.');
     } finally {
-      setLoading(false); // Disattiva lo stato di caricamento, sia in caso di successo che di errore
+      setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div id= "spazioSotto">
     <div className="section-wave section-wave--top" style={topWaveStyle}></div>
     <div className="container section registration-page">
       <div id="SpaziatoreTitolo"><h2>Modulo di Iscrizione alla Corsa</h2></div>
-      <p style={{ color: 'white'}} className="page-description">Compila il modulo sottostante per iscriverti alla Grande Corsa della Città. Assicurati di inserire tutti i dati richiesti.</p>
-
+      <p style={{ color: 'white'}} className="page-description">
+        Compila il modulo sottostante per iscriverti alla nostra corsa (costo iscrizione 10 euro).
+        <br /><br />
+        <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
+        <br /><br />
+        <ul style={{ textAlign: 'left'}}>
+          <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
+          <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
+          <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
+          <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
+          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")</li>
+        </ul>
+        Seguire tutti i passaggi è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
+      </p>
       {/* Messaggio di feedback all'utente (successo o errore) */}
       {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}
 
@@ -148,11 +149,11 @@ function RegistrationPage() {
           <input
             type="text"
             id="nome"
-            name="nome" // L'attributo 'name' DEVE corrispondere alla proprietà in 'formData'
+            name="nome"
             value={formData.nome}
             onChange={handleChange}
             required
-            disabled={loading} // Disabilita input durante l'invio
+            disabled={loading}
           />
         </div>
 
@@ -163,6 +164,19 @@ function RegistrationPage() {
             id="cognome"
             name="cognome"
             value={formData.cognome}
+            onChange={handleChange}
+            required
+            disabled={loading}
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="codiceFiscale">Codice Fiscale:</label>
+          <input
+            type="text"
+            id="codiceFiscale"
+            name="codiceFiscale"
+            value={formData.codiceFiscale}
             onChange={handleChange}
             required
             disabled={loading}
@@ -182,6 +196,21 @@ function RegistrationPage() {
           />
         </div>
 
+        <div className="form-group">
+          <label htmlFor="telefono">Numero di Telefono:</label>
+          <input
+            type="tel"
+            id="telefono"
+            name="telefono"
+            value={formData.telefono}
+            onChange={handleChange}
+            required
+            disabled={loading}
+            pattern="[0-9]{10}"
+            title="Inserisci un numero di telefono valido (es. 3331234567)"
+          />
+        </div>
+        
         <div className="form-group">
           <label htmlFor="dataNascita">Data di Nascita:</label>
           <input
@@ -208,45 +237,21 @@ function RegistrationPage() {
             <option value="">Seleziona</option>
             <option value="uomo">Uomo</option>
             <option value="donna">Donna</option>
-            <option value="altro">Altro</option>
+            <option value="altro">Preferisco non specificare</option>
           </select>
         </div>
 
-        <div className="form-group">
-          <label htmlFor="percorso">Percorso:</label>
-          <select
-            id="percorso"
-            name="percorso"
-            value={formData.percorso}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          >
-            <option value="">Seleziona il percorso</option>
-            <option value="10km">10 km (Agonistica/Non Agonistica)</option>
-            <option value="5km">5 km (Ludico-Motoria)</option>
-          </select>
-        </div>
-
-        <div className="form-group checkbox-group">
-          <input
-            type="checkbox"
-            id="terminiAccettati"
-            name="terminiAccettati"
-            checked={formData.terminiAccettati}
-            onChange={handleChange}
-            disabled={loading}
-          />
-          <label htmlFor="terminiAccettati">Accetto i <a href="#termini" onClick={(e) => e.preventDefault()}>termini e condizioni</a></label>
-        </div>
+        {/* Checkbox per i termini e condizioni - RIMOSSO */}
 
         <button type="submit" className="submit-button" disabled={loading}>
           {loading ? 'Invio in corso...' : 'Procedi al Pagamento'}
         </button>
       </form>
     </div>
+    
     </div>
   );
 }
+
 
 export default RegistrationPage;

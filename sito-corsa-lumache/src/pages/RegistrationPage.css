@@ -43,15 +43,19 @@ h2.registration-page {
 }
 
 #SpaziatoreTitolo {
-  margin-top: 50px; /* Spazio tra l'onda superiore e il titolo */
+  margin-top: 200px; /* Spazio tra l'onda superiore e il titolo */
+  
 }
 
+#mappaPercorso {
+  margin-bottom: 200px; /* Spazio tra il titolo e la mappa */
+}
 .registration-form {
   max-width: 600px;
   margin: 0 auto;
   padding: 40px;
   margin-top: 20px; /* Spazio tra il titolo e il form */
-  margin-bottom: 100px; /* Spazio tra il form e il footer */
+  margin-bottom: 400px; /* Spazio tra il form e il footer */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.15);
@@ -84,6 +88,7 @@ h2.registration-page {
 .form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="date"],
+.form-group input[type="tel"], /* <--- AGGIUNTO QUESTO! */
 .form-group select {
   width: calc(100% - 20px); /* 100% meno il padding */
   padding: 12px 10px;
@@ -98,6 +103,7 @@ h2.registration-page {
   .form-group input[type="text"],
   .form-group input[type="email"],
   .form-group input[type="date"],
+  .form-group input[type="tel"], /* <--- AGGIUNTO ANCHE QUI! */
   .form-group select {
     background-color: #ffffff;
     border-color: #dd2f8a;
@@ -145,4 +151,3 @@ h2.registration-page {
   background-color: #dd2f898e;
   transform: translateY(-2px);
 }
-
