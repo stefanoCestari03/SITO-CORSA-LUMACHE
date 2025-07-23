@@ -1,3 +1,20 @@
+@font-face {
+  font-family: 'Patrick Hand';
+  src: url('/fonts/PatrickHand-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Outfit - per testo generale, bottoni e navigazione */
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/Outfit-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 .registration-cta {
   background-color: #e9d6e0
 ; /* Verde brillante */
@@ -46,12 +63,96 @@
 .textContainerRegistration {
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: center;
   padding: 20px;
-  margin-right: 50%;
   margin-left: 20px;
+  margin-right: 50%;
   margin-top: 200px;
   margin-bottom: 200px;
+}
+
+.textContainerRegistration h2 {
+  font-size: 2.5em;
+  color: #dd2f8a;
+  margin-bottom: 40px;
+}
+
+.textContainerRegistration p {
+  font-size: 1.8em;
+  color: #dd2f8a;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.deadline {
+  font-weight: bold;
+  color: #dd2f8a !important;
+}
+
+/* Miglioramenti responsive per RegistrationCta - CENTRATO MEGLIO */
+@media (max-width: 1200px) {
+  .textContainerRegistration {
+    margin-left: 25px;
+    margin-right: 50%;
+  }
+  .textContainerRegistration h2 {
+    font-size: 2.2em;
+  }
+  .textContainerRegistration p {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 992px) {
+  .textContainerRegistration {
+    margin-left: 30px;
+    margin-right: 35%;
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+  .textContainerRegistration h2 {
+    font-size: 2em;
+  }
+  .textContainerRegistration p {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .textContainerRegistration {
+    margin-left: auto;
+    margin-right: 11%;
+    max-width: 90%;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 30px;
+  }
+  .textContainerRegistration h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    margin-right: -7%;
+    text-align: center;
+  }
+  .textContainerRegistration p {
+    font-size: 1.2em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .textContainerRegistration {
+    margin: 60px auto;
+    max-width: 95%;
+    padding: 20px;
+  }
+  .textContainerRegistration h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .textContainerRegistration p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
 }
 
 

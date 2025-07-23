@@ -3,7 +3,7 @@ import RaceDetails from "../components/RaceDetails";
 import "./RaceDetailsPage.css"; // Importa il CSS
 // import Lightbox from "react-lightbox-component"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
 // import "react-lightbox-component/build/css/index.css"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
-import raceMapImage from "../assets/race-map.jpg";
+import raceMapImage from "../assets/immaginePercorso.png"; // Assicurati che il percorso dell'immagine sia corretto
 
 const sectionBackgroundStyle = {
       backgroundSize: 'cover',

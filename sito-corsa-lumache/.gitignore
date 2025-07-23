@@ -44,3 +44,4 @@ Thumbs.db          # Windows specific files
 .cache/
 .eslintcache
 .rollup.cache
+.vercel

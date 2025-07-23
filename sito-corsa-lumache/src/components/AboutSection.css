@@ -20,3 +20,66 @@
   margin-bottom: 30px;
   text-align: left;
 }
+
+/* Miglioramenti responsive per AboutSection */
+@media (max-width: 1200px) {
+  .textContainerAbout {
+    margin-left: 45%;
+    margin-right: 30px;
+  }
+  .textContainerAbout h2 {
+    font-size: 2.2em;
+  }
+  .textContainerAbout p {
+    font-size: 1.6em;
+  }
+}
+
+@media (max-width: 992px) {
+  .textContainerAbout {
+    margin-left: 40%;
+    margin-right: 40px;
+    margin-top: 150px;
+    margin-bottom: 150px;
+  }
+  .textContainerAbout h2 {
+    font-size: 2em;
+  }
+  .textContainerAbout p {
+    font-size: 1.4em;
+  }
+}
+
+@media (max-width: 768px) {
+  .textContainerAbout {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    padding: 30px;
+  }
+  .textContainerAbout h2 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .textContainerAbout p {
+    font-size: 1.2em;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .textContainerAbout {
+    margin: 60px 15px;
+    padding: 20px;
+  }
+  .textContainerAbout h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .textContainerAbout p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}
