@@ -3,7 +3,7 @@ import RaceDetails from "../components/RaceDetails";
 import "./RaceDetailsPage.css"; // Importa il CSS
 // import Lightbox from "react-lightbox-component"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
 // import "react-lightbox-component/build/css/index.css"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
-import raceMapImage from "../assets/immaginePercorso.png"; // Assicurati che il percorso dell'immagine sia corretto
+import raceMapImage from "../assets/immaginePercorso.jpg"; // Assicurati che il percorso dell'immagine sia corretto
 
 const sectionBackgroundStyle = {
       backgroundSize: 'cover',
@@ -55,15 +55,21 @@ function RaceDetailsPage() {
         <div id="mappaPercorso" className="race-map-section">
         <div id="SpaziaTitolo"><h2>Mappa Interattiva del Percorso</h2></div>
         <p>Clicca sull'immagine per ingrandire la mappa e visualizzare i dettagli del percorso.</p>
-        {/* Utilizzo di ModalImage - assicurati che sia esattamente così */}
-        <div style={{ maxWidth: '600px', margin: '0 auto', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }}>
+        {/* Utilizzo di ModalImage - container ottimizzato */}
+        <div style={{
+          maxWidth: '600px',
+          margin: '0 auto',
+          borderRadius: '8px',
+          overflow: 'hidden',
+          /* boxShadow: '0 4px 10px rgba(0,0,0,0.1)' */ // RIMOSSA L'OMBRA
+        }}>
           <ModalImage
             small={raceMapImage}
             large={raceMapImage}
             alt="Mappa del Percorso"
             hideDownload={true}
             hideZoom={false}
-            className="rounded-lg shadow-md"
+            className="race-map-image"
           />
         </div>
       </div>

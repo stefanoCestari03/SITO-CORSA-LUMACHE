@@ -142,6 +142,7 @@
 @media (max-width: 480px) {
   .textContainerRegistration {
     margin: 60px auto;
+    margin-right: -7%;
     max-width: 95%;
     padding: 20px;
   }
@@ -155,5 +156,20 @@
   }
 }
 
-
+@media (max-width: 360px) {
+  .textContainerRegistration {
+    margin: 60px auto;
+    margin-right: 7%;
+    max-width: 95%;
+    padding: 20px;
+  }
+  .textContainerRegistration h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+  }
+  .textContainerRegistration p {
+    font-size: 1em;
+    line-height: 1.5;
+  }
+}
 
