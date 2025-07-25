@@ -13,7 +13,7 @@ const topWaveStyle = {
     zIndex: '0', // Mettiamo le onde sotto il contenuto della sezione
     pointerEvents: 'none',
     top: '0',
-    marginTop: '-70px', // Per evitare che l'onda superiore si sovrapponga al contenuto
+    marginTop: '-69px', // Per evitare che l'onda superiore si sovrapponga al contenuto
     // L'SVG ha il 'dente' in basso. Il fill deve corrispondere al colore della sezione (#dd2f8a)
     backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23333' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
   };

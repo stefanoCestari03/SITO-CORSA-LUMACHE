@@ -89,11 +89,11 @@
   color: #dd2f8a !important;
 }
 
-/* Miglioramenti responsive per RegistrationCta - CENTRATO MEGLIO */
+/* Miglioramenti responsive per RegistrationCta - CENTRATO PERFETTO */
 @media (max-width: 1200px) {
   .textContainerRegistration {
     margin-left: 25px;
-    margin-right: 50%;
+    margin-right: 45%;
   }
   .textContainerRegistration h2 {
     font-size: 2.2em;
@@ -120,56 +120,106 @@
 
 @media (max-width: 768px) {
   .textContainerRegistration {
-    margin-left: auto;
-    margin-right: 11%;
-    max-width: 90%;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin: 100px auto;
+    max-width: 85%;
     padding: 30px;
+    text-align: center; /* Centra tutto il contenitore */
   }
   .textContainerRegistration h2 {
     font-size: 1.8em;
     margin-bottom: 30px;
-    margin-right: -7%;
     text-align: center;
+    margin-left: 0; /* Rimuove margini laterali */
+    margin-right: 0;
   }
   .textContainerRegistration p {
     font-size: 1.2em;
     text-align: center;
+    margin-left: 0; /* Rimuove margini laterali */
+    margin-right: 0;
+    padding-left: 0; /* Rimuove padding laterali */
+    padding-right: 0;
   }
 }
 
 @media (max-width: 480px) {
   .textContainerRegistration {
-    margin: 60px auto;
-    margin-right: -7%;
-    max-width: 95%;
-    padding: 20px;
+    margin: 80px auto;
+    max-width: 90%;
+    padding: 25px;
+    text-align: center; /* Centra tutto il contenitore */
   }
   .textContainerRegistration h2 {
-    font-size: 1.5em;
-    margin-bottom: 20px;
+    font-size: 1.6em;
+    margin-bottom: 25px;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
   }
   .textContainerRegistration p {
-    font-size: 1em;
-    line-height: 1.5;
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
 @media (max-width: 360px) {
   .textContainerRegistration {
     margin: 60px auto;
-    margin-right: 7%;
     max-width: 95%;
     padding: 20px;
+    text-align: center; /* Centra tutto il contenitore */
   }
   .textContainerRegistration h2 {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-bottom: 20px;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
   }
   .textContainerRegistration p {
     font-size: 1em;
     line-height: 1.5;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .deadline {
+    font-size: 0.9em !important;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 320px) {
+  .textContainerRegistration {
+    margin: 50px auto;
+    max-width: 98%;
+    padding: 15px;
+    text-align: center; /* Centra tutto il contenitore */
+  }
+  .textContainerRegistration h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .textContainerRegistration p {
+    font-size: 0.95em;
+    line-height: 1.4;
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 
