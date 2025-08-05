@@ -13,7 +13,7 @@ node_modules/
 .pnp.js
 
 # Build outputs
-dist/
+#dist/
 build/
 *.local
 
