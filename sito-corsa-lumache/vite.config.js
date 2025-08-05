@@ -13,5 +13,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   // La base path sarà https://stefanoCestari03.github.io/SITO-CORSA-LUMACHE/
-  base: `/SITO-CORSA-LUMACHE/`, // <--- Questa riga è ora corretta con il nome del repository
+  //base: `/SITO-CORSA-LUMACHE/`, // <--- Questa riga è ora corretta con il nome del repository senza dominio
+  //con dominio come base
+  base:"/", // <--- Questa riga è ora corretta con il nome del dominio;
 });
