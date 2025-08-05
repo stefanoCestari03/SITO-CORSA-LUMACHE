@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 
 // Ottieni il nome del repository dal package.json per usarlo come base path
 // Questo è cruciale per GitHub Pages se non deployi sulla root (es. yourusername.github.io)
@@ -7,11 +7,11 @@ import react from '@vitejs/plugin-react';
 
 // Ottieni il nome del repository GitHub
 // Deve essere SOLO IL NOME DEL REPOSITORY, non l'URL completo o il percorso della sottocartella
-const repoName = 'SITO-CORSA-LUMACHE'; // <--- CORREZIONE QUI
+
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   // La base path sarà https://stefanoCestari03.github.io/SITO-CORSA-LUMACHE/
-  base: `/${repoName}/`, // <--- Questa riga è ora corretta con il nome del repository
+  base: `/SITO-CORSA-LUMACHE/`, // <--- Questa riga è ora corretta con il nome del repository
 });
