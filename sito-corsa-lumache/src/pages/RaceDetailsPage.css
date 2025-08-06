@@ -283,3 +283,40 @@
     padding: 20px;
   }
 }
+.video-section-title{
+  margin-top: 40px;
+}
+/* AGGIUNTO: Solo per far stringere il video con lo schermo */
+.video-container {
+  position: relative;
+  max-width: 900px;
+  width: 90%; /* AGGIUNTO: si stringe */
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.race-preview-video {
+  width: 100%; /* AGGIUNTO: occupa tutto il container */
+  height: auto;
+  display: block;
+  background-color: #000;
+  border-radius: 15px !important;
+  outline: none;
+  cursor: default;
+}
+
+/* AGGIUNTO: Media queries solo per far stringere */
+@media (max-width: 768px) {
+  .video-container {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-container {
+    width: 98%;
+  }
+}

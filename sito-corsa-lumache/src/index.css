@@ -167,7 +167,7 @@
     margin-top: 0;
     margin-bottom: 0.5em;
     line-height: 1.1;
-    color: #dd2f8a; /* RIPRISTINATO: colore originale */
+    color: white; /* RIPRISTINATO: colore originale */
     font-weight: normal; /* Patrick Hand-Regular è il peso normale del font */
   }
   h2 {
@@ -274,4 +274,3 @@
       padding: 10px; /* Meno padding sui mobile */
     }
   }
-  

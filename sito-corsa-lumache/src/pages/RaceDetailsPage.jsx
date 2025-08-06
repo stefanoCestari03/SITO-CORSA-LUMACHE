@@ -1,91 +1,101 @@
-import ModalImage from "react-modal-image"; // <--- QUESTA DEVE ESSERE LA NUOVA RIGA
+import ModalImage from "react-modal-image";
+import raceMapImage from "../assets/immaginePercorso.jpg";
+import verticalVideo from "../assets/verticalVideo.mp4"; // CAMBIATO: da orizzontalVideo a verticalVideo
 import RaceDetails from "../components/RaceDetails";
-import "./RaceDetailsPage.css"; // Importa il CSS
-// import Lightbox from "react-lightbox-component"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
-// import "react-lightbox-component/build/css/index.css"; // <--- QUESTA DEVE ESSERE COMMENTATA O CANCELLATA
-import raceMapImage from "../assets/immaginePercorso.jpg"; // Assicurati che il percorso dell'immagine sia corretto
+import "./RaceDetailsPage.css";
 
 const sectionBackgroundStyle = {
-      backgroundSize: 'cover',
-      whidth: '100%', // Copertura completa dello sfondo
-      padding: '60px 0',          // Padding interno sopra e sotto
-      textAlign: 'center',        // Allineamento testo al centro
-      backgroundColor: '#dd2f8a', // Il colore di sfondo della tua sezione
-      
-      // Cruciale per il posizionamento delle onde interne
-      position: 'relative', 
-      zIndex: '1', 
-      overflow: 'hidden', 
-    };
-  // Stili per l'onda superiore
+  backgroundSize: 'cover',
+  whidth: '100%',
+  padding: '60px 0',
+  textAlign: 'center',
+  backgroundColor: '#dd2f8a',
+  position: 'relative', 
+  zIndex: '1', 
+  overflow: 'hidden', 
+};
 
-  const topWaveStyle = {
-    position: 'relative',
-    left: '0',
-
-    width: '100%',
-    height: '50px', // Altezza dell'onda
-    backgroundRepeat: 'repeat-x',/* Ripetizione orizzontale */
-    backgroundSize: '700px 100%',
-    zIndex: '0', // Mettiamo le onde sotto il contenuto della sezione
-    pointerEvents: 'none',
-    top: '0',
-    marginTop: '-50px', // Per evitare che l'onda superiore si sovrapponga al contenuto
-    // L'SVG ha il 'dente' in basso. Il fill deve corrispondere al colore della sezione (#dd2f8a)
-    backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
-  };
+const topWaveStyle = {
+  position: 'relative',
+  left: '0',
+  width: '100%',
+  height: '50px',
+  backgroundRepeat: 'repeat-x',
+  backgroundSize: '700px 100%',
+  zIndex: '0',
+  pointerEvents: 'none',
+  top: '0',
+  marginTop: '-50px',
+  backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
+};
 
 function RaceDetailsPage() {
-  // Se avevi un array lightboxImages in questo formato specifico, puoi rimuoverlo o commentarlo
-  // perché react-modal-image funziona in modo diverso
-  // const lightboxImages = [
-  //   {
-  //     src: raceMapImage,
-  //     title: "Mappa del Percorso",
-  //     description: "Clicca per ingrandire la mappa interattiva della corsa."
-  //   }
-  // ];
-
   return (
     <div className="race-details-page">
       <div className="section-wave section-wave--top" style={topWaveStyle}></div>
       <div className="container section">
         
+        {/* AGGIUNTO: Sezione Video */}
+        <div className="video-hero-section">
+          <div className="video-title-container">
+            <h2 className="video-section-title">Scopri il Percorso</h2>
+            <p className="video-section-subtitle">Guarda l'anteprima del nostro fantastico percorso di corsa</p>
+          </div>
+          
+          <div className="video-container">
+            <video 
+              className="race-preview-video"
+              // controls // RIMOSSO: controlli video
+              autoPlay /* AGGIUNTO: avvio automatico */
+              muted /* AGGIUNTO: necessario per autoplay su mobile */
+              loop /* AGGIUNTO: loop infinito */
+              preload="auto" /* CAMBIATO: da metadata a auto per caricamento completo */
+              // poster={raceMapImage} // RIMOSSO: poster per evitare immagine gigante
+              playsInline
+              webkit-playsinline="true"
+              style={{ borderRadius: '15px' }} /* AGGIUNTO: border radius */
+            >
+              <source src={verticalVideo} type="video/mp4" /> {/* CAMBIATO: verticalVideo */}
+              Il tuo browser non supporta il tag video.
+            </video>
+          </div>
+        </div>
+
         <RaceDetails />
+        
         <div id="mappaPercorso" className="race-map-section">
-        <div id="SpaziaTitolo"><h2>Mappa Interattiva del Percorso</h2></div>
-        <p>Clicca sull'immagine per ingrandire la mappa e visualizzare i dettagli del percorso.</p>
-        {/* Utilizzo di ModalImage - container ottimizzato per iOS */}
-        <div style={{
-          maxWidth: '600px',
-          width: '100%',
-          margin: '0 auto',
-          borderRadius: '8px',
-          overflow: 'hidden',
-          position: 'relative',
-          /* Fix per iOS */
-          WebkitTransform: 'translateZ(0)',
-          transform: 'translateZ(0)',
-          WebkitBackfaceVisibility: 'hidden',
-          backfaceVisibility: 'hidden'
-        }}>
-          <ModalImage
-            small={raceMapImage}
-            large={raceMapImage}
-            alt="Mappa del Percorso"
-            hideDownload={true}
-            hideZoom={false}
-            className="race-map-image"
-            style={{
-              width: '100%',
-              height: 'auto',
-              display: 'block',
-              objectFit: 'contain'
-            }}
-          />
+          <div id="SpaziaTitolo"><h2>Mappa Interattiva del Percorso</h2></div>
+          <p>Clicca sull'immagine per ingrandire la mappa e visualizzare i dettagli del percorso.</p>
+          
+          <div style={{
+            maxWidth: '600px',
+            width: '100%',
+            margin: '0 auto',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            position: 'relative',
+            WebkitTransform: 'translateZ(0)',
+            transform: 'translateZ(0)',
+            WebkitBackfaceVisibility: 'hidden',
+            backfaceVisibility: 'hidden'
+          }}>
+            <ModalImage
+              small={raceMapImage}
+              large={raceMapImage}
+              alt="Mappa del Percorso"
+              hideDownload={true}
+              hideZoom={false}
+              className="race-map-image"
+              style={{
+                width: '100%',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain'
+              }}
+            />
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
