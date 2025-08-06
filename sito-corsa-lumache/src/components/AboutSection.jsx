@@ -1,4 +1,4 @@
-import React from 'react';
+import cermontDescrizioneImage from '../assets/ceramontDescrizione.jpg'; // Importa l'immagine
 import './AboutSection.css'; // Lascia l'import, ma ignoreremo temporaneamente queste regole per le onde
 
 function AboutSection() {
@@ -51,18 +51,28 @@ function AboutSection() {
     // Assicurati che la tua .section abbia position: relative; e z-index nel suo CSS
     // Poiché stiamo testando le onde, concentriamoci solo su di esse.
   }
+
   return (
     <section id="about" className="section" >
       {/* Top Wave - con stili inline per il test */}
       <div className="section-wave section-wave--top" style={topWaveStyle}></div>
       
       <div className="container" style={sectionBackgroundStyle}>
-        <div className='textContainerAbout'>
-          <h2>La "Snail Trail 10K"  Un Ritorno alle Origini con Spirito Giovane!</h2>
-          <p>Preparatevi, il nostro paese si rianima! La "Snail Trail 10K" non è solo una corsa, ma un vero e proprio viaggio nel tempo, che riporta in vita lo spirito della storica "Lumaci en Fuga". L'idea nasce da noi, giovani del paese, con il desiderio di rivitalizzare le nostre tradizioni e di unire la comunità attraverso lo sport e il divertimento.
-Vogliamo che sia un'occasione per tutti di mettersi alla prova, godendosi il percorso che ha visto generazioni di corridori sfidarsi. Ma l'impegno sportivo è solo l'inizio: al traguardo, l'atmosfera si scalderà! Festeggeremo insieme la fatica e la gioia della gara, brindando con una meritata birretta, prima di immergerci nella festa più attesa: Sagra delle Piazze.
-Unitevi a noi per correre, sorridere e divertirvi, riscoprendo il piacere di stare insieme e di celebrare le nostre radici!</p>
+        <div className="about-content-layout">
+          <div className='textContainerAbout'>
+            <h2>La "Snail Trail 10K"  Un Ritorno alle Origini con Spirito Giovane!</h2>
+            <p>Preparatevi, il nostro paese si rianima! La "Snail Trail 10K" non è solo una corsa, ma un vero e proprio viaggio nel tempo, che riporta in vita lo spirito della storica "Lumaci en Fuga". L'idea nasce da noi, giovani del paese, con il desiderio di rivitalizzare le nostre tradizioni e di unire la comunità attraverso lo sport e il divertimento.</p>
+            <p>Vogliamo che sia un'occasione per tutti di mettersi alla prova, godendosi il percorso che ha visto generazioni di corridori sfidarsi. Ma l'impegno sportivo è solo l'inizio: al traguardo, l'atmosfera si scalderà! Festeggeremo insieme la fatica e la gioia della gara, brindando con una meritata birretta, prima di immergerci nella festa più attesa: Sagra delle Piazze.</p>
+            <p>Unitevi a noi per correre, sorridere e divertirvi, riscoprendo il piacere di stare insieme e di celebrare le nostre radici!</p>
+          </div>
           
+          <div className="imageContainerAbout">
+            <img 
+              src={cermontDescrizioneImage} 
+              alt="Descrizione dell'evento Cermont" 
+              className="about-description-image"
+            />
+          </div>
         </div>
       </div>
 

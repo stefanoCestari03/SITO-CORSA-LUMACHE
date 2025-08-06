@@ -27,7 +27,7 @@
   font-display: swap; /* Migliora il caricamento */
 }
 .header {
-  background-image: url('../assets/LumacaHero.jpg'); /* Immagine di sfondo per l'header */
+  background-image: url('../assets/cermontAutunno.jpg'); /* Immagine di sfondo per l'header */
   background-size: cover; /* Copre l'intera area dell'header */
   background-position: center; /* Centra l'immagine di sfondo */
   color: white;
@@ -67,7 +67,7 @@
 .header nav a {
   font-family: 'Mandarin', cursive; /* Font per il titolo */
   font-size: 2.5em;
-  color: white;
+  color: #dd2f8a;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;

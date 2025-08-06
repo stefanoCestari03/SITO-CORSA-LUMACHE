@@ -41,8 +41,8 @@
 .hero-section .button {
   background-color: #dd2f8a; /* Giallo brillante per CTA */
   color: white; /* Testo scuro sul bottone */
-  padding: 15px 30px;
-  font-size: 1.3em;
+  padding: 35px 60px; /* AUMENTATO: da 15px 30px a 25px 50px */
+  font-size: 2em; /* AUMENTATO: da 1.3em a 1.8em */
   text-decoration: none;
   border-radius: 50%;
   transition: background-color 0.3s ease;
@@ -64,8 +64,8 @@
     font-size: 1em;
   }
   .hero-section .button {
-    font-size: 1.1em;
-    padding: 12px 25px;
+    font-size: 1.5em; /* AUMENTATO: da 1.1em a 1.5em */
+    padding: 20px 40px; /* AUMENTATO: da 12px 25px a 20px 40px */
     flex-direction: column; /* Per centrare il bottone su mobile */
   }
 }

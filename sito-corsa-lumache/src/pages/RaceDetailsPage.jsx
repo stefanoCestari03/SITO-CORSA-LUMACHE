@@ -55,13 +55,19 @@ function RaceDetailsPage() {
         <div id="mappaPercorso" className="race-map-section">
         <div id="SpaziaTitolo"><h2>Mappa Interattiva del Percorso</h2></div>
         <p>Clicca sull'immagine per ingrandire la mappa e visualizzare i dettagli del percorso.</p>
-        {/* Utilizzo di ModalImage - container ottimizzato */}
+        {/* Utilizzo di ModalImage - container ottimizzato per iOS */}
         <div style={{
           maxWidth: '600px',
+          width: '100%',
           margin: '0 auto',
           borderRadius: '8px',
           overflow: 'hidden',
-          /* boxShadow: '0 4px 10px rgba(0,0,0,0.1)' */ // RIMOSSA L'OMBRA
+          position: 'relative',
+          /* Fix per iOS */
+          WebkitTransform: 'translateZ(0)',
+          transform: 'translateZ(0)',
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden'
         }}>
           <ModalImage
             small={raceMapImage}
@@ -70,6 +76,12 @@ function RaceDetailsPage() {
             hideDownload={true}
             hideZoom={false}
             className="race-map-image"
+            style={{
+              width: '100%',
+              height: 'auto',
+              display: 'block',
+              objectFit: 'contain'
+            }}
           />
         </div>
       </div>

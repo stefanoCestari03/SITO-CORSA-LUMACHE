@@ -120,6 +120,92 @@
   margin-bottom: 20px;
 }
 
+/* Ottimizzazione per l'immagine del percorso */
+.race-map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none !important;
+  /* Fix specifico per iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Contenitore della mappa senza ombre residue */
+#mappaPercorso {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  /* Fix per iOS */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+#mappaPercorso > div {
+  margin-bottom: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Rimuove eventuali ombre dalla libreria ModalImage */
+.react-modal-image-lightbox {
+  box-shadow: none !important;
+}
+
+/* Media query specifica per dispositivi iOS */
+@supports (-webkit-touch-callout: none) {
+  .race-map-image {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Fix per iPhone e dispositivi piccoli */
+@media screen and (max-width: 480px) {
+  #mappaPercorso > div {
+    max-width: 95% !important;
+    margin: 0 auto !important;
+  }
+  
+  .race-map-image {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Fix aggiuntivo per dispositivi Apple di varie dimensioni */
+@media screen and (max-width: 414px) {
+  /* iPhone 6/7/8 Plus, iPhone XR, iPhone 11 */
+  .race-map-image {
+    max-height: 300px !important;
+    object-fit: contain !important;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  /* iPhone 6/7/8, iPhone X/XS/11 Pro */
+  .race-map-image {
+    max-height: 280px !important;
+    object-fit: contain !important;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  /* iPhone 5/SE */
+  .race-map-image {
+    max-height: 240px !important;
+    object-fit: contain !important;
+  }
+}
+
 #SpaziaTitolo{
   margin-top: 70px;
   margin-bottom: 30px;
