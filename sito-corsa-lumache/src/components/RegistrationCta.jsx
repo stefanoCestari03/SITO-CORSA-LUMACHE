@@ -1,6 +1,35 @@
 import cermontFirstHalfImage from '../assets/ceramontFirstHalf.jpg'; // Importa l'immagine
 import './RegistrationCta.css';
 
+const topWaveStyle = {
+  position: 'relative',
+  left: '0',
+  width: '100%',
+  height: '50px', /* AGGIORNATO: a 50px */
+  backgroundRepeat: 'repeat-x',
+  backgroundSize: '700px 100%',
+  zIndex: '0',
+  pointerEvents: 'none',
+  top: '0',
+  marginTop: '-50px', /* AGGIORNATO: allineato con AboutSection */
+  backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
+};
+
+const bottomWaveStyle = {
+  position: 'relative',
+  maxWidth: '100%',
+  left: '0',
+  width: '100%',
+  height: '50px', /* AGGIORNATO: a 50px */
+  backgroundRepeat: 'repeat-x',
+  backgroundSize: '700px 100%',
+  zIndex: '0',
+  pointerEvents: 'none',
+  bottom: '0',
+  marginBottom: '-52px', /* AGGIORNATO: allineato con AboutSection */
+  backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,100C166,95,333,0,500,0C667,0,833,95,1000,100L1000,0L0,0L0,100Z'/%3E%3C/svg%3E\")",
+};
+
 function RegistrationCta() {
   return (
     <section id="register" className="section registration-cta">

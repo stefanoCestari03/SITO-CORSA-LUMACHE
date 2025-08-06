@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import './RegistrationPage.css'; // Assicurati di avere questo file CSS
+import { useState } from 'react';
 import { supabase } from '../supabaseClient'; // Importa il client Supabase
+import './RegistrationPage.css'; // Assicurati di avere questo file CSS
 
 
 const sectionBackgroundStyle = {
@@ -22,13 +22,13 @@ const sectionBackgroundStyle = {
     left: '0',
 
     width: '100%',
-    height: '50px', // Altezza dell'onda
+    height: '50px', /* AGGIORNATO: a 50px come AboutSection */
     backgroundRepeat: 'repeat-x',/* Ripetizione orizzontale */
     backgroundSize: '700px 100%',
     zIndex: '0', // Mettiamo le onde sotto il contenuto della sezione
     pointerEvents: 'none',
     top: '0',
-    marginTop: '-52px', // Per evitare che l'onda superiore si sovrapponga al contenuto
+    marginTop: '-51px',
     // L'SVG ha il 'dente' in basso. Il fill deve corrispondere al colore della sezione (#dd2f8a)
     backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23dd2f8a' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
   };

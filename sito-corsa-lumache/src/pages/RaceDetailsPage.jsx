@@ -19,13 +19,13 @@ const topWaveStyle = {
   position: 'relative',
   left: '0',
   width: '100%',
-  height: '50px',
+  height: '50px', /* AGGIORNATO: da qualsiasi valore a 50px come AboutSection */
   backgroundRepeat: 'repeat-x',
   backgroundSize: '700px 100%',
   zIndex: '0',
   pointerEvents: 'none',
   top: '0',
-  marginTop: '-50px',
+  marginTop: '-51px',
   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
 };
 

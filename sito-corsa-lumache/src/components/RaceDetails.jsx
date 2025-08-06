@@ -2,6 +2,7 @@ import './RaceDetails.css'; // Creeremo questo file CSS
 
 
 
+
 function RaceDetails() {
   return (
       
