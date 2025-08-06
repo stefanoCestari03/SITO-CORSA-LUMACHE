@@ -8,20 +8,21 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
       - name: Install dependencies
         run: npm install
+        working-directory: ./sito-corsa-lumache/ # <--- AGGIUNGI QUESTA RIGA
 
       - name: Build
         run: npm run build
+        working-directory: ./sito-corsa-lumache/ # <--- AGGIUNGI QUESTA RIGA
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./sito-corsa-lumache/dist # <--- MODIFICA ANCHE QUESTA RIGA
           cname: 'snailtrail10k.it'
