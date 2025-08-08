@@ -151,3 +151,138 @@ h2.registration-page {
   background-color: #dd2f898e;
   transform: translateY(-2px);
 }
+
+/* AGGIUNTO: Stili per la sezione foto organizer - identica al video */
+.organizer-photo-section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(221, 47, 138, 0.1) 0%, rgba(240, 175, 207, 0.1) 100%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.organizer-photo-title-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.organizer-photo-section-title {
+  font-family: 'Mandarin', cursive;
+  font-size: 3em;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.organizer-photo-section-subtitle {
+  font-size: 1.4em;
+  color: white;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.organizer-photo-container {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.organizer-photo-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 15px !important;
+  object-fit: contain;
+}
+
+/* RESPONSIVE per la foto organizer - identico al video */
+@media (max-width: 768px) {
+  .organizer-photo-section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 40px 15px;
+    border-radius: 15px;
+  }
+  
+  .organizer-photo-title-container {
+    margin-bottom: 40px;
+  }
+  
+  .organizer-photo-section-title {
+    font-size: 2.2em;
+  }
+  
+  .organizer-photo-section-subtitle {
+    font-size: 1.2em;
+  }
+  
+  .organizer-photo-container {
+    width: 95%;
+    border-radius: 12px;
+  }
+  
+  .organizer-photo-image {
+    border-radius: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .organizer-photo-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px 10px;
+    border-radius: 12px;
+  }
+  
+  .organizer-photo-title-container {
+    margin-bottom: 35px;
+  }
+  
+  .organizer-photo-section-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .organizer-photo-section-subtitle {
+    font-size: 1.1em;
+  }
+  
+  .organizer-photo-container {
+    width: 98%;
+    border-radius: 10px;
+  }
+  
+  .organizer-photo-image {
+    border-radius: 10px !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .organizer-photo-section {
+    padding: 20px 8px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .organizer-photo-section-title {
+    font-size: 1.6em;
+  }
+  
+  .organizer-photo-section-subtitle {
+    font-size: 1em;
+  }
+  
+  .organizer-photo-container {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .organizer-photo-image {
+    border-radius: 8px !important;
+  }
+}

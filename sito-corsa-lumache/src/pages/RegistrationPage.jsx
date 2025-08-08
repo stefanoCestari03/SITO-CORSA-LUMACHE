@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { supabase } from '../supabaseClient'; // Importa il client Supabase
 import './RegistrationPage.css'; // Assicurati di avere questo file CSS
-
 
 const sectionBackgroundStyle = {
       backgroundSize: 'cover',
@@ -34,6 +34,8 @@ const sectionBackgroundStyle = {
   };
 
 function RegistrationPage() {
+  const location = useLocation();
+
   // Stato per gestire i dati del modulo.
   // I nomi delle proprietà (es. 'nome', 'dataNascita') devono corrispondere agli
   // attributi 'name' degli input del form e verranno mappati alle colonne del DB.
@@ -120,22 +122,51 @@ function RegistrationPage() {
     }
   };
 
+  const handleTitleClick = () => {
+    const element = document.getElementById('SpaziatoreTitolo');
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  useEffect(() => {
+    // Se c'è un hash nell'URL, scrolla all'elemento
+    if (location.hash === '#modulo-iscrizione') {
+      setTimeout(() => {
+        const element = document.getElementById('SpaziatoreTitolo');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 500); // AUMENTATO: da 300ms a 500ms per dare più tempo al caricamento
+    }
+  }, [location]);
+
   return (
     <div id= "spazioSotto">
     <div className="section-wave section-wave--top" style={topWaveStyle}></div>
     <div className="container section registration-page">
-      <div id="SpaziatoreTitolo"><h2>Modulo di Iscrizione alla Corsa</h2></div>
+      <div id="SpaziatoreTitolo">
+        <h2 onClick={handleTitleClick} style={{ cursor: 'pointer' }}>
+          Modulo di Iscrizione alla Corsa
+        </h2>
+      </div>
       <p style={{ color: 'white'}} className="page-description">
         Compila il modulo sottostante per iscriverti alla nostra corsa (costo iscrizione 10 euro).
         <br /><br />
         <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
         <br /><br />
         <ul style={{ textAlign: 'left'}}>
+          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025"</li>
           <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
           <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
           <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
           <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
-          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")</li>
         </ul>
         Seguire tutti i passaggi è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
       </p>

@@ -320,3 +320,78 @@
     width: 98%;
   }
 }
+
+/* AGGIUNTO: Sezione Video con sfondo come la foto organizer */
+.video-hero-section {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, rgba(221, 47, 138, 0.1) 0%, rgba(240, 175, 207, 0.1) 100%);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-title-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.video-section-title {
+  font-family: 'Mandarin', cursive;
+  font-size: 3em;
+  color: white;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.video-section-subtitle {
+  font-size: 1.4em;
+  color: white;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE per la sezione video */
+@media (max-width: 768px) {
+  .video-hero-section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding: 40px 15px;
+    border-radius: 15px;
+  }
+  
+  .video-title-container {
+    margin-bottom: 40px;
+  }
+  
+  .video-section-title {
+    font-size: 2.2em;
+  }
+  
+  .video-section-subtitle {
+    font-size: 1.2em;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-hero-section {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px 10px;
+    border-radius: 12px;
+  }
+  
+  .video-title-container {
+    margin-bottom: 35px;
+  }
+  
+  .video-section-title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+  }
+  
+  .video-section-subtitle {
+    font-size: 1.1em;
+  }
+}

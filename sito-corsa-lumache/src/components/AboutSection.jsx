@@ -53,7 +53,7 @@ function AboutSection() {
   }
 
   return (
-    <section id="about" className="section" >
+    <section id="about-corsa" className="section" >
       {/* Top Wave - con stili inline per il test */}
       <div className="section-wave section-wave--top" style={topWaveStyle}></div>
       

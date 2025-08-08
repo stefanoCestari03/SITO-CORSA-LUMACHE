@@ -1,6 +1,9 @@
+import { useEffect } from 'react'; // AGGIUNTO: import useEffect
 import ModalImage from "react-modal-image";
+import { useLocation } from 'react-router-dom'; // AGGIUNTO: import useLocation
 import raceMapImage from "../assets/immaginePercorso.jpg";
-import verticalVideo from "../assets/verticalVideo.mp4"; // CAMBIATO: da orizzontalVideo a verticalVideo
+import organizerPhoto from "../assets/organizerPhoto.jpg"; // AGGIUNTO: import della foto organizer
+import verticalVideo from "../assets/verticalVideo.mp4";
 import RaceDetails from "../components/RaceDetails";
 import "./RaceDetailsPage.css";
 
@@ -19,23 +22,57 @@ const topWaveStyle = {
   position: 'relative',
   left: '0',
   width: '100%',
-  height: '50px', /* AGGIORNATO: da qualsiasi valore a 50px come AboutSection */
+  height: '50px',
   backgroundRepeat: 'repeat-x',
   backgroundSize: '700px 100%',
   zIndex: '0',
   pointerEvents: 'none',
   top: '0',
-  marginTop: '-51px',
+  marginTop: '-50px',
   backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23f0afcf' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
 };
 
 function RaceDetailsPage() {
+  const location = useLocation(); // AGGIUNTO: per leggere l'hash dall'URL
+
+  // AGGIUNTO: Effect per gestire lo scroll automatico
+  useEffect(() => {
+    if (location.hash === '#chi-organizza') {
+      setTimeout(() => {
+        const element = document.getElementById('chi-organizza');
+        if (element) {
+          element.scrollIntoView({ 
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      }, 300);
+    }
+  }, [location]);
+
   return (
     <div className="race-details-page">
       <div className="section-wave section-wave--top" style={topWaveStyle}></div>
       <div className="container section">
         
-        {/* AGGIUNTO: Sezione Video */}
+        {/* MODIFICATO: Aggiunto id per lo scroll */}
+        <div id="chi-organizza" className="organizer-photo-section">
+          <div className="organizer-photo-title-container">
+            <h2 className="organizer-photo-section-title">Chi Organizza</h2>
+            <p className="organizer-photo-section-subtitle">I nostri organizzatori:
+            </p>
+          </div>
+          
+          <div className="organizer-photo-container">
+            <img 
+              src={organizerPhoto}
+              alt="Foto degli organizzatori"
+              className="organizer-photo-image"
+            />
+          </div>
+        </div>
+
+        {/* MODIFICATO: Sezione Video con sfondo come la foto organizer */}
         <div className="video-hero-section">
           <div className="video-title-container">
             <h2 className="video-section-title">Scopri il Percorso</h2>
@@ -45,17 +82,15 @@ function RaceDetailsPage() {
           <div className="video-container">
             <video 
               className="race-preview-video"
-              // controls // RIMOSSO: controlli video
-              autoPlay /* AGGIUNTO: avvio automatico */
-              muted /* AGGIUNTO: necessario per autoplay su mobile */
-              loop /* AGGIUNTO: loop infinito */
-              preload="auto" /* CAMBIATO: da metadata a auto per caricamento completo */
-              // poster={raceMapImage} // RIMOSSO: poster per evitare immagine gigante
+              autoPlay
+              muted
+              loop
+              preload="auto"
               playsInline
               webkit-playsinline="true"
-              style={{ borderRadius: '15px' }} /* AGGIUNTO: border radius */
+              style={{ borderRadius: '15px' }}
             >
-              <source src={verticalVideo} type="video/mp4" /> {/* CAMBIATO: verticalVideo */}
+              <source src={verticalVideo} type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
           </div>
