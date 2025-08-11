@@ -40,7 +40,7 @@
   align-items: center; /* Allinea verticalmente icona e titolo */
   gap: 10px;
 }
-
+ /* Rende l'icona e il titolo affiancati */
 .header .container {
   display: flex;
   justify-content: space-between;
