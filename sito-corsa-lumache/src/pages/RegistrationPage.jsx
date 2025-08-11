@@ -101,7 +101,7 @@ function RegistrationPage() {
 
       } else {
         console.log('Iscrizione inviata con successo!', data);
-        setMessage('Iscrizione completata con successo! Ora procederesti al pagamento.');
+        setMessage('Iscrizione completata con successo! Grazie per aver effettuato utti i passaggi correttamente non esitare a contattarci per eventuali problematiche.');
         // Resetta il form
         setFormData({
           nome: '',
@@ -162,13 +162,13 @@ function RegistrationPage() {
         <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
         <br /><br />
         <ul style={{ textAlign: 'left'}}>
-          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025"</li>
+          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025 nome e cognome"</li>
           <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
           <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
           <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
           <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
         </ul>
-        Seguire tutti i passaggi è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
+        Seguire tutti i passaggi per ogni singolo partecipante è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
       </p>
       {/* Messaggio di feedback all'utente (successo o errore) */}
       {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}
@@ -275,7 +275,7 @@ function RegistrationPage() {
         {/* Checkbox per i termini e condizioni - RIMOSSO */}
 
         <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? 'Invio in corso...' : 'Procedi al Pagamento'}
+          {loading ? 'Invio in corso...' : 'Procedi'}
         </button>
       </form>
     </div>

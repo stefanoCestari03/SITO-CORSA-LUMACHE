@@ -62,7 +62,7 @@ function AboutSection() {
           <div className='textContainerAbout'>
             <h2>La "Snail Trail 10K"  Un Ritorno alle Origini con Spirito Giovane!</h2>
             <p>Preparatevi, il nostro paese si rianima! La "Snail Trail 10K" non è solo una corsa, ma un vero e proprio viaggio nel tempo, che riporta in vita lo spirito della storica "Lumaci en Fuga". L'idea nasce da noi, giovani del paese, con il desiderio di rivitalizzare le nostre tradizioni e di unire la comunità attraverso lo sport e il divertimento.</p>
-            <p>Vogliamo che sia un'occasione per tutti di mettersi alla prova, godendosi il percorso che ha visto generazioni di corridori sfidarsi. Ma l'impegno sportivo è solo l'inizio: al traguardo, l'atmosfera si scalderà! Festeggeremo insieme la fatica e la gioia della gara, brindando con una meritata birretta, prima di immergerci nella festa più attesa: Sagra delle Piazze.</p>
+            <p>Vogliamo che sia un'occasione per tutti di mettersi alla prova, godendosi il percorso che ha visto generazioni di corridori sfidarsi. Ma l'impegno sportivo è solo l'inizio: al traguardo, l'atmosfera si scalderà! Festeggeremo insieme la fatica e la gioia della gara, brindando con una meritata birretta, prima di immergerci nella festa più attesa: La Sagra delle Piazze.</p>
             <p>Unitevi a noi per correre, sorridere e divertirvi, riscoprendo il piacere di stare insieme e di celebrare le nostre radici!</p>
           </div>
           

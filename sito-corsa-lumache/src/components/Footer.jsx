@@ -39,7 +39,14 @@ function Footer() {
                 <strong>Pietro Svaldi</strong> - Responsabile Organizzazione<br />
                 <span className="phone">Tel: +39 348 377 1136</span>
               </p>
+
+              <p className="organizer">
+                <strong>Eleonora  Svaldi</strong> - Web page graphic, Video/Photo<br />
+                <span className="phone">Tel: +39 348 377 1136</span>
+              </p>
             </div>
+
+            
           </div>
           
           <div className="social-links">

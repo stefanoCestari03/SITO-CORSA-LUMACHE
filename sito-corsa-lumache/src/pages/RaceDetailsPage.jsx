@@ -3,7 +3,7 @@ import ModalImage from "react-modal-image";
 import { useLocation } from 'react-router-dom'; // AGGIUNTO: import useLocation
 import raceMapImage from "../assets/immaginePercorso.jpg";
 import organizerPhoto from "../assets/organizerPhoto.jpg"; // AGGIUNTO: import della foto organizer
-import verticalVideo from "../assets/verticalVideo.mp4";
+import verticalVideo from "../assets/girogara_conscritte.mp4";
 import RaceDetails from "../components/RaceDetails";
 import "./RaceDetailsPage.css";
 
