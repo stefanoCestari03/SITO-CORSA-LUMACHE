@@ -24,7 +24,7 @@ function RaceDetails() {
             <a href='https://maps.app.goo.gl/niQPtwqxNosNHhqM7'><div className="detail-item">
               <h3>Luogo</h3>
               <p id="luogo">Piazze di Bedollo (TN)</p>
-              <p>Parcheggio disponibile nelle vicinanze</p>
+              <p>Parcheggio disponibile nelle vicinanze <br/> <strong>cliccami per vedere la posizione</strong></p>
             </div></a>
             <div className="detail-item">
               <h3>Percorso</h3>
