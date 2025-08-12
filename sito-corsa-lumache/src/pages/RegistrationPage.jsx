@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { supabase } from '../supabaseClient'; // Importa il client Supabase
+import liberatoriaPdf from '../assets/LiberatoriaPerPartecipanti.pdf'; // AGGIUNTO: import del PDF
+import { supabase } from '../supabaseClient';
 import './RegistrationPage.css'; // Assicurati di avere questo file CSS
 
 const sectionBackgroundStyle = {
@@ -148,138 +149,156 @@ function RegistrationPage() {
   }, [location]);
 
   return (
-    <div id= "spazioSotto">
-    <div className="section-wave section-wave--top" style={topWaveStyle}></div>
-    <div className="container section registration-page">
-      <div id="SpaziatoreTitolo">
-        <h2 onClick={handleTitleClick} style={{ cursor: 'pointer' }}>
-          Modulo di Iscrizione alla Corsa
-        </h2>
-      </div>
-      <p style={{ color: 'white'}} className="page-description">
-        Compila il modulo sottostante per iscriverti alla nostra corsa (costo iscrizione 10 euro).
-        <br /><br />
-        <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
-        <br /><br />
-        <ul style={{ textAlign: 'left'}}>
-          <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025 nome e cognome"</li>
-          <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
-          <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
-          <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
-          <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
-        </ul>
-        Seguire tutti i passaggi per ogni singolo partecipante è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
-      </p>
-      {/* Messaggio di feedback all'utente (successo o errore) */}
-      {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}
-
-      {/* Il form con tutti i campi e il pulsante di invio */}
-      <form onSubmit={handleSubmit} className="registration-form">
-        <div className="form-group">
-          <label htmlFor="nome">Nome:</label>
-          <input
-            type="text"
-            id="nome"
-            name="nome"
-            value={formData.nome}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
+    <div id="spazioSotto">
+      <div className="section-wave section-wave--top" style={topWaveStyle}></div>
+      <div className="container section registration-page">
+        <div id="SpaziatoreTitolo">
+          <h2 onClick={handleTitleClick} style={{ cursor: 'pointer' }}>
+            Modulo di Iscrizione alla Corsa
+          </h2>
         </div>
+        <p style={{ color: 'white'}} className="page-description">
+          Compila il modulo sottostante per iscriverti alla nostra corsa (costo iscrizione 10 euro).
+          <br /><br />
+          <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
+          <br /><br />
+          <ul style={{ textAlign: 'left'}}>
+            <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025 nome e cognome"</li>
+            <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
+            <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
+            <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
+            <li>Allega alla email la <strong>Liberatoria e scarico di responsabilità firmata e compilata</strong> clicca qui sotto per scaricare il modulo</li>
+            <div className="liberatoria-download">
+                <a 
+                  href={liberatoriaPdf} 
+                  download="LiberatoriaPerPartecipanti.pdf"
+                  className="download-link"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
+                <h3 style={{ color: 'white', marginBottom: '15px',marginTop: '15px', textAlign: 'center' }}>📄 Clicca per scaricare la Liberatoria da firmare</h3>
+                </a>
+                <p style={{ color: '#e0e0e0', fontSize: '0.9em', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
+                  Scaricare e leggere e firmare la liberatoria prima di procedere con l'iscrizione.
+                </p>
+              </div>
+            <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
+          </ul>
+          Seguire tutti i passaggi per ogni singolo partecipante è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
+        </p>
 
-        <div className="form-group">
-          <label htmlFor="cognome">Cognome:</label>
-          <input
-            type="text"
-            id="cognome"
-            name="cognome"
-            value={formData.cognome}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="codiceFiscale">Codice Fiscale:</label>
-          <input
-            type="text"
-            id="codiceFiscale"
-            name="codiceFiscale"
-            value={formData.codiceFiscale}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="telefono">Numero di Telefono:</label>
-          <input
-            type="tel"
-            id="telefono"
-            name="telefono"
-            value={formData.telefono}
-            onChange={handleChange}
-            required
-            disabled={loading}
-            pattern="[0-9]{10}"
-            title="Inserisci un numero di telefono valido (es. 3331234567)"
-          />
-        </div>
+        {/* AGGIUNTO: Link per scaricare la liberatoria */}
         
-        <div className="form-group">
-          <label htmlFor="dataNascita">Data di Nascita:</label>
-          <input
-            type="date"
-            id="dataNascita"
-            name="dataNascita"
-            value={formData.dataNascita}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          />
-        </div>
 
-        <div className="form-group">
-          <label htmlFor="genere">Genere:</label>
-          <select
-            id="genere"
-            name="genere"
-            value={formData.genere}
-            onChange={handleChange}
-            required
-            disabled={loading}
-          >
-            <option value="">Seleziona</option>
-            <option value="uomo">Uomo</option>
-            <option value="donna">Donna</option>
-            <option value="altro">Preferisco non specificare</option>
-          </select>
-        </div>
+        {/* Messaggio di feedback all'utente (successo o errore) */}
+        {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}
 
-        {/* Checkbox per i termini e condizioni - RIMOSSO */}
+        {/* Il form con tutti i campi e il pulsante di invio */}
+        <form onSubmit={handleSubmit} className="registration-form">
+          <div className="form-group">
+            <label htmlFor="nome">Nome:</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              value={formData.nome}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
 
-        <button type="submit" className="submit-button" disabled={loading}>
-          {loading ? 'Invio in corso...' : 'Procedi'}
-        </button>
-      </form>
-    </div>
-    
+          <div className="form-group">
+            <label htmlFor="cognome">Cognome:</label>
+            <input
+              type="text"
+              id="cognome"
+              name="cognome"
+              value={formData.cognome}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="codiceFiscale">Codice Fiscale:</label>
+            <input
+              type="text"
+              id="codiceFiscale"
+              name="codiceFiscale"
+              value={formData.codiceFiscale}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="email">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="telefono">Numero di Telefono:</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              value={formData.telefono}
+              onChange={handleChange}
+              required
+              disabled={loading}
+              pattern="[0-9]{10}"
+              title="Inserisci un numero di telefono valido (es. 3331234567)"
+            />
+          </div>
+          
+          <div className="form-group">
+            <label htmlFor="dataNascita">Data di Nascita:</label>
+            <input
+              type="date"
+              id="dataNascita"
+              name="dataNascita"
+              value={formData.dataNascita}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="genere">Genere:</label>
+            <select
+              id="genere"
+              name="genere"
+              value={formData.genere}
+              onChange={handleChange}
+              required
+              disabled={loading}
+            >
+              <option value="">Seleziona</option>
+              <option value="uomo">Uomo</option>
+              <option value="donna">Donna</option>
+              <option value="altro">Preferisco non specificare</option>
+            </select>
+          </div>
+
+          {/* Checkbox per i termini e condizioni - RIMOSSO */}
+
+          <button type="submit" className="submit-button" disabled={loading}>
+            {loading ? 'Invio in corso...' : 'Procedi'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
