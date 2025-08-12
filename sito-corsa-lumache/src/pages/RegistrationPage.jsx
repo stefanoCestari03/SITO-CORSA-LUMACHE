@@ -179,7 +179,7 @@ function RegistrationPage() {
                 <h3 style={{ color: 'white', marginBottom: '15px',marginTop: '15px', textAlign: 'center' }}>📄 Clicca per scaricare la Liberatoria da firmare</h3>
                 </a>
                 <p style={{ color: '#e0e0e0', fontSize: '0.9em', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                  Scaricare e leggere e firmare la liberatoria prima di procedere con l'iscrizione.
+                  Scaricare, leggere e firmare la liberatoria prima di procedere con l'iscrizione.
                 </p>
               </div>
             <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
