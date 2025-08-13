@@ -54,12 +54,12 @@ function RegistrationCta() {
           </div>
         </div>
       </div>
-      <nav className="main-nav">
+      {/* <nav className="main-nav">
         <ul>
           <li><Link to="/races">Scopri l'evento</Link></li>
           <li><Link to="/register#modulo-iscrizione">Iscrizione</Link></li>
         </ul>
-      </nav>
+      </nav> */}
     </section>
   );
 }

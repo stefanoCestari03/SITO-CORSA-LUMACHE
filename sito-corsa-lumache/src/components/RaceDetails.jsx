@@ -28,7 +28,7 @@ function RaceDetails() {
             </div></a>
             <div className="detail-item">
               <h3>Percorso</h3>
-              <p>10 km (agonistica e non agonistica)</p>
+              <p>10 km (non agonistica)</p>
               <p>Dislivello (250D+)</p>
             </div>
           </div>
