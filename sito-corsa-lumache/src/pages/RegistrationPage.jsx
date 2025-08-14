@@ -167,7 +167,7 @@ function RegistrationPage() {
             <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
             <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
             <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
-            <li>Allega alla email la <strong>Liberatoria e scarico di responsabilità firmata e compilata</strong> clicca qui sotto per scaricare il modulo</li>
+            <li>Allega alla email la <strong>Liberatoria e scarico di responsabilità firmata e compilata in formato PDF</strong> clicca qui sotto per scaricare il modulo</li>
             <div className="liberatoria-download">
                 <a 
                   href={liberatoriaPdf} 
