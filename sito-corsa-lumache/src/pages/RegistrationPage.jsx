@@ -1,45 +1,40 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import liberatoriaPdf from '../assets/LiberatoriaPerPartecipanti.pdf'; // AGGIUNTO: import del PDF
-import { supabase } from '../supabaseClient';
 import './RegistrationPage.css'; // Assicurati di avere questo file CSS
 
+// COMMENTATO: Stili di sfondo
+/*
 const sectionBackgroundStyle = {
       backgroundSize: 'cover',
-      whidth: '100%', // Copertura completa dello sfondo
-      padding: '60px 0',           // Padding interno sopra e sotto
-      textAlign: 'center',        // Allineamento testo al centro
-      backgroundColor: '#dd2f8a', // Il colore di sfondo della tua sezione
-      
-      // Cruciale per il posizionamento delle onde interne
+      whidth: '100%', 
+      padding: '60px 0',           
+      textAlign: 'center',        
+      backgroundColor: '#dd2f8a', 
       position: 'relative', 
       zIndex: '1', 
       overflow: 'hidden', 
     };
-  // Stili per l'onda superiore
+*/
 
-  const topWaveStyle = {
+const topWaveStyle = {
     position: 'relative',
     left: '0',
-
     width: '100%',
-    height: '50px', /* AGGIORNATO: a 50px come AboutSection */
-    backgroundRepeat: 'repeat-x',/* Ripetizione orizzontale */
+    height: '50px',
+    backgroundRepeat: 'repeat-x',
     backgroundSize: '700px 100%',
-    zIndex: '0', // Mettiamo le onde sotto il contenuto della sezione
+    zIndex: '0',
     pointerEvents: 'none',
     top: '0',
     marginTop: '-51px',
-    // L'SVG ha il 'dente' in basso. Il fill deve corrispondere al colore della sezione (#dd2f8a)
     backgroundImage: "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 100' preserveAspectRatio='none'%3E%3Cpath class='elementor-shape-fill' fill='%23dd2f8a' d='M0,0C166,5,333,100,500,100C667,100,833,5,1000,0L1000,100L0,100L0,0Z'/%3E%3C/svg%3E\")",
   };
 
 function RegistrationPage() {
-  const location = useLocation();
+  // COMMENTATO: Hook per location
+  // const location = useLocation();
 
-  // Stato per gestire i dati del modulo.
-  // I nomi delle proprietà (es. 'nome', 'dataNascita') devono corrispondere agli
-  // attributi 'name' degli input del form e verranno mappati alle colonne del DB.
+  // COMMENTATO: Stati del form
+  /*
   const [formData, setFormData] = useState({
     nome: '',
     cognome: '',
@@ -48,36 +43,30 @@ function RegistrationPage() {
     telefono: '',
     dataNascita: '',
     genere: '',
-    // 'terminiAccettati' rimosso dallo stato
   });
 
-  // Stati per la gestione del feedback utente e dello stato di caricamento
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  */
 
-  // Gestore per l'aggiornamento dello stato del form quando gli input cambiano
+  // COMMENTATO: Gestori del form
+  /*
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      // La gestione delle checkbox qui non è più strettamente necessaria se non ci sono altre checkbox,
-      // ma è innocua lasciarla. Ho comunque rimosso 'terminiAccettati' dall'oggetto di stato.
       [name]: value, 
     }));
   };
 
-  // Funzione che viene chiamata quando il form viene inviato
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Impedisce il ricaricamento predefinito della pagina
-
-    // Validazione per 'terminiAccettati' rimossa
-
+    e.preventDefault();
     setLoading(true);
     setMessage('');
 
     try {
       const { data, error } = await supabase
-        .from('registrations') // <--- NOME DELLA TUA TABELLA SUPABASE
+        .from('registrations')
         .insert([
           {
             nome: formData.nome,
@@ -87,23 +76,19 @@ function RegistrationPage() {
             telefono: formData.telefono,
             data_nascita: formData.dataNascita,
             genere: formData.genere,
-            // 'termini_accettati' rimosso dall'inserimento
           },
         ]);
 
       if (error) {
         console.error('Errore durante l\'inserimento su Supabase:', error);
         let errorMessage = `Errore nell'iscrizione: ${error.message}.`;
-
         if (error.code === '23505') {
             errorMessage = 'Errore: Un utente con questa email è già iscritto.';
         }
         setMessage(errorMessage);
-
       } else {
         console.log('Iscrizione inviata con successo!', data);
-        setMessage('Iscrizione completata con successo! Grazie per aver effettuato utti i passaggi correttamente non esitare a contattarci per eventuali problematiche.');
-        // Resetta il form
+        setMessage('Iscrizione completata con successo!');
         setFormData({
           nome: '',
           cognome: '',
@@ -112,7 +97,6 @@ function RegistrationPage() {
           telefono: '',
           dataNascita: '',
           genere: '',
-          // 'terminiAccettati' rimosso dal reset
         });
       }
     } catch (err) {
@@ -134,7 +118,6 @@ function RegistrationPage() {
   };
 
   useEffect(() => {
-    // Se c'è un hash nell'URL, scrolla all'elemento
     if (location.hash === '#modulo-iscrizione') {
       setTimeout(() => {
         const element = document.getElementById('SpaziatoreTitolo');
@@ -144,164 +127,146 @@ function RegistrationPage() {
             block: 'start'
           });
         }
-      }, 500); // AUMENTATO: da 300ms a 500ms per dare più tempo al caricamento
+      }, 500);
     }
   }, [location]);
+  */
 
   return (
     <div id="spazioSotto">
       <div className="section-wave section-wave--top" style={topWaveStyle}></div>
       <div className="container section registration-page">
+        
+        {/* Messaggio principale "See you in 2026" */}
+        <div style={{
+          textAlign: 'center',
+          color: 'white',
+          padding: '60px 20px',
+          marginBottom: '40px'
+        }}>
+          <h1 style={{ 
+            fontSize: '3.5em', 
+            marginBottom: '20px',
+            fontFamily: 'Mandarin, cursive',
+            textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+            color: '#ffffff'
+          }}>
+            🐌 SnailTrail 10K 🐌
+          </h1>
+          
+          <h2 style={{ 
+            fontSize: '2.2em', 
+            marginBottom: '20px',
+            color: '#f0afcf'
+          }}>
+            See You in 2026! 
+          </h2>
+          
+          <p style={{ 
+            fontSize: '1.2em', 
+            maxWidth: '600px',
+            margin: '0 auto 30px auto',
+            lineHeight: '1.6',
+            opacity: '0.9'
+          }}>
+            Le iscrizioni per l'edizione 2025 sono chiuse.<br />
+            Ci vediamo il prossimo anno per una nuova avventura!
+          </p>
+          
+          <div style={{
+            fontSize: '2em',
+            marginBottom: '20px'
+          }}>
+            🏃‍♂️🏃‍♀️🎯
+          </div>
+        </div>
+
+        {/* Sezione download liberatoria */}
+        <div className="liberatoria-download" style={{
+          margin: '40px auto',
+          padding: '30px',
+          background: 'rgba(255, 255, 255, 0.1)',
+          borderRadius: '15px',
+          border: '2px solid rgba(255, 255, 255, 0.2)',
+          backdropFilter: 'blur(5px)',
+          textAlign: 'center',
+          maxWidth: '600px'
+        }}>
+          <h3 style={{ 
+            color: 'white', 
+            marginBottom: '15px',
+            fontSize: '1.4em' 
+          }}>
+            📄 Documenti Utili
+          </h3>
+          
+          <a 
+            href={liberatoriaPdf} 
+            download="LiberatoriaPerPartecipanti.pdf"
+            className="download-link"
+            target="_blank" 
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              background: 'linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%)',
+              color: '#dd2f8a',
+              padding: '15px 25px',
+              borderRadius: '25px',
+              textDecoration: 'none',
+              fontWeight: 'bold',
+              fontSize: '1.1em',
+              transition: 'all 0.3s ease',
+              boxShadow: '0 4px 15px rgba(255, 255, 255, 0.2)',
+              border: '2px solid transparent'
+            }}
+          >
+            📥 Scarica la Liberatoria per Partecipanti (PDF)
+          </a>
+          
+          <p style={{ 
+            color: '#e0e0e0', 
+            fontSize: '0.9em', 
+            marginTop: '15px', 
+            fontStyle: 'italic' 
+          }}>
+            Documento utile per le future edizioni della corsa.
+          </p>
+        </div>
+
+        {/* COMMENTATO: Tutto il contenuto del form e delle istruzioni */}
+        {/*
         <div id="SpaziatoreTitolo">
           <h2 onClick={handleTitleClick} style={{ cursor: 'pointer' }}>
             Modulo di Iscrizione alla Corsa
           </h2>
         </div>
+
         <p style={{ color: 'white'}} className="page-description">
           Compila il modulo sottostante per iscriverti alla nostra corsa (costo iscrizione 10 euro).
           <br /><br />
           <strong>Per validare l'iscrizione, è importante seguire questi passaggi:</strong>
           <br /><br />
           <ul style={{ textAlign: 'left'}}>
-            <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN: <strong style={{color: '#ffffff'}}>IT26A0817834340000024004861</strong> (intestato a "Filodrammatica El Lumac")con Causale:"Iscrizione SnailTrail10k-2025 nome e cognome"</li>
-            <li>Invia una <strong>email</strong> a <strong style={{color: '#ffffff'}}>snail.trail10k@gmail.com</strong></li>
-            <li>L'oggetto dell'email deve essere: <strong style={{color: '#ffffff'}}>"[iscrizione-2025-snailTrail10k]-nome.cognome"</strong></li>
-            <li>Allega alla email la <strong>ricevuta del bonifico di 10 euro</strong></li>
-            <li>Allega alla email la <strong>Liberatoria e scarico di responsabilità firmata e compilata in formato PDF</strong> clicca qui sotto per scaricare il modulo</li>
-            <div className="liberatoria-download">
-                <a 
-                  href={liberatoriaPdf} 
-                  download="LiberatoriaPerPartecipanti.pdf"
-                  className="download-link"
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                <h3 style={{ color: 'white', marginBottom: '15px',marginTop: '15px', textAlign: 'center' }}>📄 Clicca per scaricare la Liberatoria da firmare</h3>
-                </a>
-                <p style={{ color: '#e0e0e0', fontSize: '0.9em', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                  Scaricare, leggere e firmare la liberatoria prima di procedere con l'iscrizione.
-                </p>
-              </div>
-            <li>Allega un <strong>eventuale certificato medico</strong> (se in possesso, non necessario per iscrizione)</li>
+            <li>Effettua il bonifico di iscrizione di 10 euro al seguente IBAN...</li>
+            <li>Invia una email...</li>
+            <li>L'oggetto dell'email deve essere...</li>
+            <li>Allega alla email la ricevuta del bonifico...</li>
+            <li>Allega alla email la Liberatoria...</li>
+            <li>Allega un eventuale certificato medico...</li>
           </ul>
-          Seguire tutti i passaggi per ogni singolo partecipante è fondamentale per completare e validare la tua iscrizione alla corsa, continua compilando il form sottostante.
+          Seguire tutti i passaggi per ogni singolo partecipante...
         </p>
 
-        {/* AGGIUNTO: Link per scaricare la liberatoria */}
-        
-
-        {/* Messaggio di feedback all'utente (successo o errore) */}
         {message && <div className={`form-message ${message.includes('Errore') ? 'error' : 'success'}`}>{message}</div>}
 
-        {/* Il form con tutti i campi e il pulsante di invio */}
         <form onSubmit={handleSubmit} className="registration-form">
-          <div className="form-group">
-            <label htmlFor="nome">Nome:</label>
-            <input
-              type="text"
-              id="nome"
-              name="nome"
-              value={formData.nome}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="cognome">Cognome:</label>
-            <input
-              type="text"
-              id="cognome"
-              name="cognome"
-              value={formData.cognome}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="codiceFiscale">Codice Fiscale:</label>
-            <input
-              type="text"
-              id="codiceFiscale"
-              name="codiceFiscale"
-              value={formData.codiceFiscale}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="telefono">Numero di Telefono:</label>
-            <input
-              type="tel"
-              id="telefono"
-              name="telefono"
-              value={formData.telefono}
-              onChange={handleChange}
-              required
-              disabled={loading}
-              pattern="[0-9]{10}"
-              title="Inserisci un numero di telefono valido (es. 3331234567)"
-            />
-          </div>
-          
-          <div className="form-group">
-            <label htmlFor="dataNascita">Data di Nascita:</label>
-            <input
-              type="date"
-              id="dataNascita"
-              name="dataNascita"
-              value={formData.dataNascita}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="genere">Genere:</label>
-            <select
-              id="genere"
-              name="genere"
-              value={formData.genere}
-              onChange={handleChange}
-              required
-              disabled={loading}
-            >
-              <option value="">Seleziona</option>
-              <option value="uomo">Uomo</option>
-              <option value="donna">Donna</option>
-              <option value="altro">Preferisco non specificare</option>
-            </select>
-          </div>
-
-          {/* Checkbox per i termini e condizioni - RIMOSSO */}
-
-          <button type="submit" className="submit-button" disabled={loading}>
-            {loading ? 'Invio in corso...' : 'Procedi'}
-          </button>
+          [... tutto il form commentato ...]
         </form>
+        */}
+
       </div>
     </div>
   );
 }
-
 
 export default RegistrationPage;
